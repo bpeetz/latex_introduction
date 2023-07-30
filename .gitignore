@@ -1,5 +1,7 @@
 # build dirs
 /result
 /build
+/handout/build
+/presentation/build
 
 .direnv

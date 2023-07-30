@@ -3,9 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # inputs for following
     systems = {
-      url = "github:nix-systems/x86_64-linux"; # only evaluate for this system
+      url = "github:nix-systems/x86_64-linux";
     };
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -25,22 +24,41 @@
 
       texlive = pkgs.texlive.combined.scheme-full;
     in {
-      packages.default = pkgs.stdenv.mkDerivation {
-        pname = "latex-presentation";
-        version = "1.0";
-        src = ./.;
+      packages = {
+        handout = pkgs.stdenv.mkDerivation {
+          pname = "latex-handout";
+          version = "1.0";
+          src = ./.;
 
-        buildInputs = [
-          texlive
-        ];
+          nativeBuildInputs = [
+            texlive
+          ];
 
-        buildPhase = ''
-          latexmk -file-line-error main.tex
-        '';
+          buildPhase = ''
+            latexmk -file-line-error -pdf handout/main.tex
+          '';
 
-        installPhase = ''
-          install -D $scr/build/*.pdf $out/;
-        '';
+          installPhase = ''
+            install -D ./build/*.pdf $out/;
+          '';
+        };
+        default = pkgs.stdenv.mkDerivation {
+          pname = "latex-presentation";
+          version = "1.0";
+          src = ./.;
+
+          nativeBuildInputs = [
+            texlive
+          ];
+
+          buildPhase = ''
+            latexmk -file-line-error -pdf presentation/main.tex
+          '';
+
+          installPhase = ''
+            install -D ./build/*.pdf $out/;
+          '';
+        };
       };
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
@@ -52,6 +70,7 @@
 
           texlab
           zathura
+          texlive
         ];
       };
     });
