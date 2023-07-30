@@ -1,0 +1,5 @@
+# build dirs
+/result
+/build
+
+.direnv
