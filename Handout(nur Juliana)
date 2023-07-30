@@ -1,0 +1,166 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\title{\LaTeX{}-Handout}
+\author{Juliana Kunz, Benedikt Peetz und Jonathan Steiner}
+\date{}
+
+\begin{document}
+\maketitle
+
+\chapter*{\centering Zusätzliche \LaTeX{}-Befehle}   
+\section*{Position der Elemente}
+Durch den Befehl {\color{blue}\verb|\centering|} kann man Texte und Bilder zentrieren, unter anderem muss man machmal Umgebungen erstellen, also {\color{blue}\verb|\begin{center}|} und {\color{blue}\verb|\end{center}|} notieren.\\
+\raggedright Der Befehl {\color{blue}\verb|\raggedright|} lässt den gesamten folgenden Text linksbündig schreiben.\\
+\raggedleft Der Befehl {\color{blue}\verb|\raggedleft|} lässt den gesamten folgenden Text rechtsbündig schreiben.
+
+\raggedright
+
+\section*{Paragraphen}
+Um einen neuen Paragraphen zu erstellen, kann man entweder den Befehl {\color{blue}\verb|\newline|} \newline verwenden.\\ Oder {\color{blue}\verb|\\|}, dann wird auch \\ in der nächsten Zeile weitergeschrieben.
+
+\section*{Kapitel und Abschnitte}
+Kapitel werden durch den Befehl {\color{blue}\verb|\chapter{}|} gebildet, dabei wird auch jedesmal dem Namen eine Zahl zugeordnet, möchte man dies umgehen, schreibt man {\color{blue}\verb|\chapter*{}|}.\\
+Das Gleiche gilt auch für die Abschnitte {\color{blue}\verb|\section{}|} und {\color{blue}\verb|\subsection{}|}, der Name ist dabei fett gedruckt und größer als der normale Text.
+
+
+
+\section*{Kommentare}
+Kommentare werden mit einem {\color{blue}\verb|%|} - Zeichen eingeleitet und dienen dem Schreiber.
+\newline
+\underline{Beispiel:} {\color{blue}\verb|%Dieser Befehl dient dem Einfügen von Bildern.|}
+
+\section*{Graphiken }
+Bilder o.Ä. können erst eingefügt werden, wenn ein Paket mit vordefinierten Befehlen am Anfang mit eingebunden wird.\\
+\underline{Schreibe am Anfang:} {\color{blue}\verb|\usepackage{graphicx}|}
+\\Um das Bild einfügen zu können, muss man angeben, wo die Graphik in deinen Dateien liegt.\\
+\underline{Den Weg zum Bild angeben:} {\color{blue}\verb|\graphicspath{{Downloads/}}|}\\
+Das Bild liegt hier in einem Ordner "Downloads", danach wird das Bild hochgeladen mit dem Angeben des Namens.\\ Zusätzlich kann die Größe des Bildes durch {\color{blue}"width="} angegeben werden, in diesem Fall ist das Bild 50\verb|%| so groß, wie der Text, auch kann man sich auf die Texthöhe mit {\color{blue}"height=\verb|\textheight"|} beziehen. \\
+\underline{Einfügen des Bildes:} {\color{blue}\verb|\includegraphics[width=0.5\textwidth]{LaTeX-logo}|}\\
+\underline{Beispiel:} 
+\graphicspath{{Downloads/}}
+\begin{figure}[h]
+\includegraphics[width=0.5\textwidth]{LaTeX-logo}
+\centering
+\end{figure}\\
+Mit {\color{blue}\verb|\begin{figure}[h] und \end{figure}|} kann man noch den Ankerpunkt des Bildes angeben.\\
+{\color{blue}t} = am Anfang der Seite  |  {\color{blue}b} = am Ende der Seite \\
+{\color{blue}h} = ungefähr an der Stelle, an welcher man es im Code geschrieben hat\\
+\vspace{0.5cm}
+Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbildung kann verwiesen werden.\\
+
+\graphicspath{{Downloads/}}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\textwidth]{LaTeX-logo}
+\begin{center}Figure 1: Mit {\color{blue}\verb|\caption{}|} erstellt man diesen Text.\end{center}
+\end{figure} 
+\raggedright
+\label{fig:LaTeX-logo}
+Mit {\color{blue}\verb|\label{fig:LaTeX-logo|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo|} wird diese Zahl hier ausgegeben: 1\ref{fig:LaTeX-logo}.\\
+
+\section*{Listen}
+Bei Listen muss zuerst eine Umgebung erstellt werden, also ein Bereich, in welchem die Liste sich befindet.
+\begin{itemize}
+    \item Zuerst schreibt man also: {\color{blue}\verb|\begin{itemize}|} oder {\color{blue}\verb|{enumerate}|}
+    \item Mit {\color{blue}\verb|\item|} werden dann die einzelnen Listenpunkte definiert.
+    \item Um die Liste zu beenden, schreibt man dann: {\color{blue}\verb|\end{itemize}|} oder {\color{blue}\verb|{enumerate}|}
+\end{itemize}
+\begin{enumerate}
+    \item {\color{blue}itemize} kreiert Punkte und {\color{blue}enumerate} kreiert Nummern.
+\end{enumerate}
+
+\section*{Mathematik}
+Um auch etwas Mathematik hier einfließen zu lassen, kann man Formeln darstellen und wenn man das im Satz tun möchte, passiert das am leichtesten durch das einklammern mit den {\color{blue}\verb|$$|}-Zeichen.\\ Möchte man eine mathematische Formel als einzigen Inhalt einer Zeile haben, nutzt man {\color{blue}\verb|\[...\]|} zum Einklammern.\\
+\underline{Beispiel:}\\
+Der Flächeninhalt eines Kreises wird durch die Formel $A=\pi×r^2$ beschrieben.\\
+Der Flächeninhalt eines Kreises wird durch die Formel: 
+\[A=\pi×r^2\] beschrieben.
+
+\section*{Tabellen}
+Um eine Tabelle zu erstellen, braucht es wieder die Eingrenzung einer Umgebung, durch {\color{blue}\verb|\begin{tabular}{c c c}|} oder {\color{blue}\verb|{c r c}|} oder {\color{blue}\verb|{l r l}|}, usw.\\
+Die zweite Klammer gibt an, ob der Inhalt einer Tabellenzelle \underline{c}entriert, auf der \underline{l}inken oder auf der \underline{r}echten Seite ist.\\
+In diesem Fall gibt es drei×drei Tabellenzellen.\\
+Dann werden die einzelnen Tabellen beschrieben durch:\\
+\color{blue}
+\begin{verbatim}
+cell1 & cell2 & cell3\\
+cell4 & cell5 & cell6\\
+cell7 & cell8 & cell9\\
+\end{verbatim}
+\color{black}
+Durch {\color{blue}\verb|\end{tabular}|} wird die Tabellenumgebung geschlossen.
+
+\subsection*{Grenzen}
+Um die Tabelle vertikal einzugrenzen kann man am Anfang: {\color{blue}\begin{verbatim}{c|c|c|}\end{verbatim}} notieren und um horizontal einzugrenzen, schreibt man am Anfang und Ende der Zellenbeschreibung {\color{blue}\verb|\hline|}, das kann man auch doppelt schreiben.\\
+\underline{Beispiel:}\\
+\vspace{0.5cm}
+\begin{tabular}{||c|c|c||}        
+\hline\hline                      
+cell1 & cell2 & cell3\\           
+\hline                            
+cell4 & cell5 & cell6\\           
+\hline
+cell7 & cell8 & cell9\\
+\hline\hline
+\end{tabular}
+\color{blue}
+\begin{verbatim}
+\begin{tabular}{||c|c|c||}
+\hline\hline
+cell1 & cell2 & cell3\\
+\hline
+cell4 & cell5 & cell6\\
+\hline
+cell7 & cell8 & cell9\\
+\hline\hline
+\end{tabular}\\
+\end{verbatim}
+\color{black}
+
+\subsubsection*{Zellenverschmelzung}
+Zellenfelder kann man durch den Befehl: {\color{blue}\verb|\multicolumn{2}}{c}{cell 2}|} miteinandervereinen.\\
+\underline{Beispiel:}\\
+\vspace{0.5cm}
+\begin{tabular}{c|c|c}
+\hline
+\multicolumn{3}{c}{cell1,2,3}\\
+\hline
+cell4 & cell5 & cell6\\
+cell7 & cell8 & cell9\\
+\end{tabular}\\
+\vspace{0.5cm}
+
+\section*{Interessante Befehle}
+\subsection*{Abstände}
+Man kann sowohl horizontale oder vertikale Abstände einfügen, das macht man mit den Befehlen: {\color{blue}\verb|\hspace{1cm}|} oder {\color{blue}\verb|\vspace{1cm}|}\\
+Das kann dann so \hspace{3cm} aussehen oder so \vspace{1cm}\\ aussehen.
+
+\subsection*{Übergreifende Schriftart}
+Durch {\color{blue}\verb|\textit{}|} können ganze Sätze kursiv geschrieben werden. Für kursiv benutzt man {\color{blue}textit}, für fett {\color{blue}textbf} und bei underline gibt man ja generell den Bereich an.\\
+\underline{Beispiel:}\\
+\textit{Dieser ganze Satz ist kursiv!!}\\
+\textbf{Dieser ganze Satz ist fett gedruckt!!}
+
+\subsection*{Befehle als normalen Text}
+Um diesen Text in \LaTeX{} erstellen und dabei die Befehle nennen zu können, muss man wissen, wie man Befehle notiert, ohne dass diese als Befehl ausgeführt werden.\\
+Jenes tut man durch den Befehl:\\
+\color{blue}
+\begin{verbatim} \verb|underline{}| \end{verbatim}
+\color{black}
+Falls man ganze Bereiche von Befehlen als Text möchte, erstellt man eine Umgebung mit {\color{blue}\verb|\begin{verbatim}|} und beendet sie {\color{blue}\verb|\end{verbatim}|}.
+
+\subsection*{Farbe}
+In diesem Handout nutzte ich die farbliche Hervorhebung von Befehlen, davor muss man das Paket {\color{blue}xcolor} durch {\color{blue}\verb|\usepackage{xcolor}|} einfügen.\\
+Durch {\color{blue}\verb|\color|} wird dann der ganze folgende Text in der Wahlfarbe eingefärbt.\\
+Auch hier kann man alternativ eine Umgebung mit {\color{blue}\verb|\begin{red}|} und mit {\color{blue}\verb|\end{red}|} erstellen.\\
+Einzelne Worte können mit {\color{blue}\verb|{\color{red}...}|} koloriert werden, um einen farblichen Kasten zu erstellen benutzt man den Befehl {\color{blue}\verb|\colorbox{red}{}|}.\\
+\underline{Beispiele:}\\
+\color{blue} Dieser ganze Satz ist blau.\\
+\color{black}
+In diesem Satz ist nur das Wort {\color{red} Apfel} rot.\\
+Und hier ist das letzte Wort in einem farblichen \colorbox{orange}{Kasten}.\\
+\vspace{1cm}
+\huge Viel Spaß mit \LaTeX{!!!}
+\end{document}
