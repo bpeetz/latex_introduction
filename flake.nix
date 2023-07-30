@@ -28,35 +28,35 @@
         handout = pkgs.stdenv.mkDerivation {
           pname = "latex-handout";
           version = "1.0";
-          src = ./.;
+          src = ./handout;
 
           nativeBuildInputs = [
             texlive
           ];
 
           buildPhase = ''
-            latexmk -file-line-error -pdf handout/main.tex
+            latexmk -file-line-error -pdf main.tex
           '';
 
           installPhase = ''
-            install -D ./build/*.pdf $out/;
+            install -D main.pdf $out/main.pdf;
           '';
         };
         default = pkgs.stdenv.mkDerivation {
           pname = "latex-presentation";
           version = "1.0";
-          src = ./.;
+          src = ./presentation;
 
           nativeBuildInputs = [
             texlive
           ];
 
           buildPhase = ''
-            latexmk -file-line-error -pdf presentation/main.tex
+            latexmk -file-line-error -pdf main.tex
           '';
 
           installPhase = ''
-            install -D ./build/*.pdf $out/;
+            install -D main.pdf $out/main.pdf;
           '';
         };
       };
