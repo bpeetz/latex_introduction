@@ -7,8 +7,13 @@ Use
 ```
 nix build
 ```
-to build the presentation and
+to build everything (presentation and handout).
+
+If you want to build something on its own use:
 ```
 nix build .#handout
 ```
-for the handout.
+or
+```
+nix build .#presentation
+```
