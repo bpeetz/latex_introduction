@@ -52,12 +52,18 @@
           ];
 
           buildPhase = ''
-            latexmk -file-line-error -pdf main.tex
+            latexmk -file-line-error -xelatex main.tex
           '';
 
           installPhase = ''
             install -D main.pdf $out/main.pdf;
           '';
+          FONTCONFIG_FILE = pkgs.makeFontsConf {
+            fontDirectories = [
+              "${pkgs.fira-mono}/share/fonts/opentype"
+              "${pkgs.fira}/share/fonts/opentype"
+            ];
+          };
         };
       };
       devShells.default = pkgs.mkShell {
