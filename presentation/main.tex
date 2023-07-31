@@ -1,19 +1,21 @@
 % LTeX: language=de-DE
-\documentclass[]{beamer}
+%! TEX program = luatex
+\documentclass{beamer}
 
-\title{\textbf{LaTeX Einführung}}
-\author{Author 1 \and Author 2 \and Author 3}
-\institute{Deutsche Schüler Akademie}
+\usetheme[block=fill]{metropolis}
+
+\title[\LaTeX{} Einführung]{Eine Einführung in \LaTeX{} als Sprache}
+\author[Juliana, Benedikt, Jonathan]{Juliana Kunz \and Benedikt Peetz \and Jonathan Steiner}
+\date[JGW 2023-2]{JGW-Akademie Papenburg 2023-2}
+\logo{\includegraphics[height=1cm]{resources/logo-with-text}}
 \date{\today}
 
 
 \begin{document}
-    \frame{\titelpage}
+    \maketitle
 
     \input{content/slide_01}
-    \begin{frame}
-        \frametitle{title TODO}
-        text TODO
-    \end{frame}
-\end{document}
+    \input{content/slide_02}
 
+    \section{Other stuff}
+\end{document}
