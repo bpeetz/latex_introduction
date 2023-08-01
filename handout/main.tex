@@ -1,7 +1,9 @@
 % LTeX: language=de-DE
-\documentclass{report}
+\documentclass[ngerman]{report}
+\usepackage{babel}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{csquotes}
 
 \title{\LaTeX{}-Handout}
 \author{Juliana Kunz \and Benedikt Peetz \and Jonathan Steiner}
@@ -28,7 +30,7 @@ Das Gleiche gilt auch für die Abschnitte {\color{blue}\verb|\section{}|} und {\
 
 
 \section*{Kommentare}
-Kommentare werden mit einem {\color{blue}\verb|%|} - Zeichen eingeleitet und dienen dem Schreiber.
+Kommentare werden mit einem {\color{blue}\ \%} - Zeichen eingeleitet und dienen dem Schreiber.
 \newline
 \underline{Beispiel:} {\color{blue}\verb|%Dieser Befehl dient dem Einfügen von Bildern.|}
 
@@ -36,8 +38,8 @@ Kommentare werden mit einem {\color{blue}\verb|%|} - Zeichen eingeleitet und die
 Bilder o. Ä. können erst eingefügt werden, wenn ein Paket mit vordefinierten Befehlen am Anfang mit eingebunden wird.\\
 \underline{Schreibe am Anfang:} {\color{blue}\verb|\usepackage{graphicx}|}
 \\Um das Bild einfügen zu können, muss man angeben, wo die Graphik in deinen Dateien liegt.\\
-\underline{Den Weg zum Bild angeben:} {\color{blue}\verb|\graphicspath{{Downloads/}}|}\\
-Das Bild liegt hier in einem Ordner "Downloads", danach wird das Bild hochgeladen mit dem Angeben des Namens.\\ Zusätzlich kann die Größe des Bildes durch {\color{blue}"width="} angegeben werden, in diesem Fall ist das Bild 50\verb|%| so groß, wie der Text, auch kann man sich auf die Texthöhe mit {\color{blue}"height=\verb|\textheight"|} beziehen. \\
+\underline{Den Pfad zum Bild angeben:} {\color{blue}\verb|\graphicspath{{Downloads/beispiel.png}}|}\\
+Das Bild \texttt{beispiel.png} liegt hier in einem Ordner "Downloads".\\ Zusätzlich kann die Größe des Bildes durch {\color{blue} \verb|"width="|} angegeben werden, in diesem Fall ist das Bild 50\% so groß, wie der Text, auch kann man sich auf die Texthöhe mit {\color{blue}"height=\verb|\textheight"|} beziehen. \\
 \underline{Einfügen des Bildes:} {\color{blue}\verb|\includegraphics[width=0.5\textwidth]{LaTeX-logo}|}\\
 \underline{Beispiel:}
 \graphicspath{{resources}}
@@ -68,12 +70,15 @@ Bei Listen muss zuerst eine Umgebung erstellt werden, also ein Bereich, in welch
     \item Mit {\color{blue}\verb|\item|} werden dann die einzelnen Listenpunkte definiert.
     \item Um die Liste zu beenden, schreibt man dann: {\color{blue}\verb|\end{itemize}|} oder {\color{blue}\verb|{enumerate}|}.
 \end{itemize}
+Man kann
 \begin{enumerate}
-    \item {\color{blue}itemize} kreiert Punkte und {\color{blue}enumerate} kreiert Nummern.
+    \item mit {\color{blue}itemize} ungeordnete Listen (mit Aufzählungspunkt) und 
+    \item mit {\color{blue}enumerate} geordnete Listen
 \end{enumerate}
+darstellen.
 
 \section*{Mathematik}
-Um auch etwas Mathematik hier einfließen zu lassen, kann man Formeln darstellen und wenn man das im Satz tun möchte, passiert das am leichtesten durch das einklammern mit den {\color{blue}\verb|$$|}-Zeichen.\\ Möchte man eine mathematische Formel als einzigen Inhalt einer Zeile haben, nutzt man {\color{blue}\verb|\[...\]|} zum Einklammern.\\
+Um auch etwas Mathematik hier einfließen zu lassen, kann man mathematische Formeln darstellen. Wenn man das im Satz tun möchte, passiert das am leichtesten durch das Einklammern mit den {\color{blue}\verb|$…$|}-Zeichen.\\ Möchte man eine mathematische Formel als einzigen Inhalt einer Zeile haben, nutzt man {\color{blue}\verb|\[...\]|} zum Einklammern.\\
 \underline{Beispiel:}\\
 Der Flächeninhalt eines Kreises wird durch die Formel $A=\pi×r^2$ beschrieben.\\
 Der Flächeninhalt eines Kreises wird durch die Formel:
@@ -145,10 +150,10 @@ Durch {\color{blue}\verb|\textit{}|} können ganze Sätze kursiv geschrieben wer
 \textbf{Dieser ganze Satz ist fett gedruckt!!}
 
 \subsection*{Befehle als normalen Text}
-Um diesen Text in \LaTeX{} erstellen und dabei die Befehle nennen zu können, muss man wissen, wie man Befehle notiert, ohne dass diese als Befehl ausgeführt werden.\\
+Um etwa diesen Text in \LaTeX{} erstellen und dabei die Befehle nennen zu können, muss man wissen, wie man Befehle notiert, ohne dass diese als Befehl ausgeführt werden.\\
 Jenes tut man durch den Befehl:\\
 \color{blue}
-\begin{verbatim} \verb|underline{}| \end{verbatim}
+\begin{verbatim} \verb|…| \end{verbatim}
 \color{black}
 Falls man ganze Bereiche von Befehlen als Text möchte, erstellt man eine Umgebung mit {\color{blue}\verb|\begin{verbatim}|} und beendet sie {\color{blue}\verb|\end{verbatim}|}.
 
