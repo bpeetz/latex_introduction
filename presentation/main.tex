@@ -1,5 +1,5 @@
 % LTeX: language=de-DE
-%! TEX program = luatex
+%! TEX program = xelatex
 \documentclass{beamer}
 
 % Packages für Bereich Nutzung/Verschiedene Bereiche
@@ -20,23 +20,13 @@
 \begin{document}
     \maketitle
 
-    \input{content/slide_01}
-    \input{content/slide_02}
-    \input{content/slide_03}
+    \input{content/01_downsides_of_latex}
+    \input{content/02_counter_args_to_downsides}
 
-    \begin{frame}{Quellen}
-        \setbeamercolor{itemize/enumerate body}{fg=gray}
+    \input{content/03_usage}
+    \input{content/04_miscellaneous_commands}
+    \input{content/05_syntax}
+    \input{content/06_structure}
 
-        \scriptsize
-
-        \begin{itemize}
-            \item \url{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}
-            \item \url{https://www.learnlatex.org/de/}
-            \item \url{https://en.wikipedia.org/wiki/LaTeX}
-            \item \url{https://www.heise.de/download/blog/Einfuehrung-in-LaTeX-3599742}
-            \item \url{https://latex.tugraz.at/latex/tutorial}
-            \item \url{https://en.wikibooks.org/wiki/LaTeX/Basics}
-            \item Bildquellen nicht vergessen!
-        \end{itemize}
-    \end{frame}
+    \input{content/sources}
 \end{document}

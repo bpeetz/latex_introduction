@@ -1,0 +1,23 @@
+%! TEX root = ../main.tex
+% LTeX: language=de-DE
+
+\begin{frame}[fragile]{Aufbau}
+	\setbeamercolor{itemize/enumerate body}{fg=gray}
+
+	Zwei Hauptteile:
+	\begin{itemize}[<+-|alert@+>]
+		\item \textit{Präambel}
+			\begin{itemize}
+				\item \verb|\documentclass{}|
+				\item Metadaten (z.~B. \verb|\author|) $\rightarrow$ darstellen mit \verb|\maketitle|.
+				\item Teilweise: Globales Layout
+				\item Definieren eigener Befehle mit \verb|\newcomand{}{}|
+			\end{itemize}
+		\item Inhaltsteil: \verb|\begin{document} … \end{document}|
+			\begin{itemize}
+				\item Strukturierung: z.~B. \verb|\section{…}| $\rightarrow$ verschiedene Ebenen \\$\rightarrow$ Inhaltsverz. mit \verb|\tableofcontents|
+                \item Quellen \& Bibliografie mit Paket {\color{blue} \texttt{bibtex}}
+				\item Eingliederung externer \texttt{.tex} Dateien mit \verb|\input{}|
+			\end{itemize}
+	\end{itemize}
+\end{frame}
