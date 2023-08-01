@@ -1,9 +1,18 @@
 % LTeX: language=de-DE
-\documentclass[ngerman]{report}
+
+\documentclass[ngerman]{scrreport}
 \usepackage{babel}
+\usepackage{csquotes}
+
 \usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{sample.bib}
+
 
 \title{\LaTeX{}-Handout}
 \author{Juliana Kunz \and Benedikt Peetz \and Jonathan Steiner}
@@ -13,11 +22,18 @@
 \maketitle
 
 \chapter*{\centering Zusätzliche \LaTeX{}-Befehle}
+
+\section*{Schriftschnitte}
+Um einzelne Worte \textit{kursiv} zu schreiben, nutzt man den Befehl {\color{blue}\verb|\textit{...}|}.\\
+\textbf{Fett drucken:} {\color{blue}\verb|\textbf{...}|}\\
+\underline{Unterstreichen:} {\color{blue}\verb|\underline{...}|}\\
+Man kann auch unabhängig vom restlichen Text einzelne Wörter \emph{hervorheben} durch {\color{blue}\verb|\emph{...}|}. Dabei wird das Wort meist kursiv geschrieben, außer der ganze Satz wurde schon in kursiv geschrieben. Es passt sich auch anderen Schriftschnitten an.
+
+
 \section*{Position der Elemente}
 Durch den Befehl {\color{blue}\verb|\centering|} kann man Texte und Bilder zentrieren, unter anderem muss man manchmal Umgebungen erstellen, also {\color{blue}\verb|\begin{center}|} und {\color{blue}\verb|\end{center}|} notieren.\\
 \raggedright Der Befehl {\color{blue}\verb|\raggedright|} lässt den gesamten folgenden Text linksbündig schreiben.\\
 \raggedleft Der Befehl {\color{blue}\verb|\raggedleft|} lässt den gesamten folgenden Text rechtsbündig schreiben.
-
 \raggedright
 
 \section*{Paragraphen}
@@ -27,16 +43,27 @@ Um einen neuen Paragraphen zu erstellen, kann man entweder den Befehl {\color{bl
 Kapitel werden durch den Befehl {\color{blue}\verb|\chapter{}|} gebildet, dabei wird auch jedes Mal dem Namen eine Zahl zugeordnet, möchte man dies umgehen, schreibt man {\color{blue}\verb|\chapter*{}|}.\\
 Das Gleiche gilt auch für die Abschnitte {\color{blue}\verb|\section{}|} und {\color{blue}\verb|\subsection{}|}, der Name ist dabei fett gedruckt und größer als der normale Text.
 
-
-
 \section*{Kommentare}
 Kommentare werden mit einem {\color{blue}\ \%} - Zeichen eingeleitet und dienen dem Schreiber.
 \newline
 \underline{Beispiel:} {\color{blue}\verb|%Dieser Befehl dient dem Einfügen von Bildern.|}
 
+\section*{Kopfzeilen und Fußnoten}
+Für die Kopzeile und Fußnote muss ein Paket durch {\color{blue}\verb|\usepackage{fancyhdr}|} eingefügt werden, sowie das Ändern der Seite durch {\color{blue}\verb|\pagestyle{fancy}|}.\\
+Dabei fügen die Befehle:\\
+{\color{blue}\verb|\fancyhead[]{} \fancyfoot[]{}|} Kopfzeilen und Fußnoten hinzu.\\
+In die eckigen Klammern kommt dabei erstmal die Position der Erweiterung durch {\color{blue}L R C} und dazu kommt dann ein {\color{blue}O} für eine ungerade Seite oder {\color{blue}E} für eine gerade Seite.
+Diese Erweiterungen tauchen auf jeder ungerade oder gearde Seiten auf, das Prinzip ist bei der Dokumentenklasse book enthalten, man kann es durch {\color{blue}\verb|[twoside]{report}|} bei reports oder articles ergänzen, mit Kapiteln sind die Ergunzungen  nicht verträglich.\\
+Schlussendlich sieht ein solcher Befehl so aus:\\
+{\color{blue}\verb|\fancyfoot[LO, RE]{Diese Fußnote taucht linksbündig auf allen ungerade und|}\\
+{\color{blue}\verb|rechtsbündig auf allen geraden Seiten auf}|}
+
+\section*{Schriftgrößen}
+Um Worte oder einzelne Zeichen zu vergrößn oder verkleinern, sind die Befehle {\color{blue}\verb|{\huge} {\large} {\small} {\footnotesize}|} von Nutzen.\\
+Wenn man ganze Texte vergrößer/-kleinern will, lässt man die geschwungenen Klammern weg und schreibt am Ende {\color{blue}\verb|\normalsize|}.
+
 \section*{Graphiken}
-Bilder o. Ä. können erst eingefügt werden, wenn ein Paket mit vordefinierten Befehlen am Anfang mit eingebunden wird.\\
-\underline{Schreibe am Anfang:} {\color{blue}\verb|\usepackage{graphicx}|}
+Bilder o.Ä. können erst eingefügt werden, wenn ein Paket mit vordefinierten Befehlen am Anfang mit eingebunden wird, hier wäre es {\color{blue}\verb|\usepackage{graphicx}|}.
 \\Um das Bild einfügen zu können, muss man angeben, wo die Graphik in deinen Dateien liegt.\\
 \underline{Den Pfad zum Bild angeben:} {\color{blue}\verb|\graphicspath{{Downloads/beispiel.png}}|}\\
 Das Bild \texttt{beispiel.png} liegt hier in einem Ordner "Downloads".\\ Zusätzlich kann die Größe des Bildes durch {\color{blue} \verb|"width="|} angegeben werden, in diesem Fall ist das Bild 50\% so groß, wie der Text, auch kann man sich auf die Texthöhe mit {\color{blue}"height=\verb|\textheight"|} beziehen. \\
@@ -51,8 +78,7 @@ Mit {\color{blue}\verb|\begin{figure}[h]|} und {\color{blue}\verb|\end{figure}|}
 {\color{blue}t} = am Anfang der Seite  |  {\color{blue}b} = am Ende der Seite \\
 {\color{blue}h} = ungefähr an der Stelle, an welcher man es im Code geschrieben hat\\
 \vspace{0.5cm}
-Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbildung kann verwiesen werden.\\
-
+Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbildung kann verwiesen werden, der Label- und Captionbefehl muss dabei im {\color{blue}\verb|begin{figure}|} Teil stehen.\\
 \graphicspath{{resources/}}
 \begin{figure}[h]
 \centering
@@ -61,7 +87,10 @@ Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbi
 \end{figure}
 \raggedright
 \label{fig:LaTeX-logo}
-Mit {\color{blue}\verb|\label{fig:LaTeX-logo|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo|} wird diese Zahl hier ausgegeben: 1\ref{fig:LaTeX-logo}.\\
+Mit {\color{blue}\verb|\label{fig:LaTeX-logo}|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo}|} wird diese Zahl hier ausgegeben: 1\ref{fig:LaTeX-logo}.\\
+
+\section*{Dateien einfügen}
+Ähnlich wie Graphiken können auch andere \LaTeX{}-Dateien eingefügt werden. Dabei wird der Befehl {\color{blue}\verb|\input{}|} genutzt, in die Klammer kommt der Name der anderen Datei mit .tex, diese darf keine {\color{blue}documentclass} beinhalten oder {\color{blue}\verb|begin{document}|}, sowie {\color{blue}\verb|end{document}|}. Gestaltet sie so, dass sie ein direkter Ausschnitt aus der Datei sein könnte. Wenn sch die Dateien nicht im gleichen Ordner befinden muss der Ordnername durch {\color{blue}\verb|{Ordner/Dateiname.tex}|} angegeben werden.
 
 \section*{Listen}
 Bei Listen muss zuerst eine Umgebung erstellt werden, also ein Bereich, in welchem die Liste sich befindet.
@@ -78,6 +107,7 @@ Man kann
 darstellen.
 
 \section*{Mathematik}
+
 Um auch etwas Mathematik hier einfließen zu lassen, kann man mathematische Formeln darstellen. Wenn man das im Satz tun möchte, passiert das am leichtesten durch das Einklammern mit den {\color{blue}\verb|$…$|}-Zeichen.\\ Möchte man eine mathematische Formel als einzigen Inhalt einer Zeile haben, nutzt man {\color{blue}\verb|\[...\]|} zum Einklammern.\\
 \underline{Beispiel:}\\
 Der Flächeninhalt eines Kreises wird durch die Formel $A=\pi×r^2$ beschrieben.\\
@@ -139,23 +169,24 @@ cell7 & cell8 & cell9\\
 \vspace{0.5cm}
 
 \section*{Interessante Befehle}
+
 \subsection*{Abstände}
-Man kann sowohl horizontale oder vertikale Abstände einfügen, das macht man mit den Befehlen: {\color{blue}\verb|\hspace{1cm}|} oder {\color{blue}\verb|\vspace{1cm}|}\\
+Man kann sowohl horizontale als auch vertikale Abstände einfügen, das macht man mit den Befehlen: {\color{blue}\verb|\hspace{1cm}|} oder {\color{blue}\verb|\vspace{1cm}|}\\
 Das kann dann so \hspace{3cm} aussehen oder so \vspace{1cm}\\ aussehen.
 
 \subsection*{Übergreifende Schriftart}
-Durch {\color{blue}\verb|\textit{}|} können ganze Sätze kursiv geschrieben werden. Für kursiv benutzt man {\color{blue}textit}, für fett {\color{blue}textbf} und bei underline gibt man ja generell den Bereich an.\\
+Durch {\color{blue}\verb|\textit{}|} können auch ganze Sätze kursiv geschrieben werden. Für kursiv benutzt man {\color{blue}textit}, für fett {\color{blue}textbf} und bei unterstrichenen Sätzen {\color{blue}underline}, dabei kann ein ganzer Satz von den Klammern umschlossen werden. \\
 \underline{Beispiel:}\\
 \textit{Dieser ganze Satz ist kursiv!!}\\
 \textbf{Dieser ganze Satz ist fett gedruckt!!}
-
+\vspace{2cm}
 \subsection*{Befehle als normalen Text}
 Um etwa diesen Text in \LaTeX{} erstellen und dabei die Befehle nennen zu können, muss man wissen, wie man Befehle notiert, ohne dass diese als Befehl ausgeführt werden.\\
 Jenes tut man durch den Befehl:\\
 \color{blue}
 \begin{verbatim} \verb|…| \end{verbatim}
 \color{black}
-Falls man ganze Bereiche von Befehlen als Text möchte, erstellt man eine Umgebung mit {\color{blue}\verb|\begin{verbatim}|} und beendet sie {\color{blue}\verb|\end{verbatim}|}.
+Falls man ganze Bereiche von Befehlen als Text möchte, erstellt man eine Umgebung mit {\color{blue}\verb|\begin{verbatim}|} und beendet sie mit {\color{blue}\verb|\end{verbatim}|}.
 
 \subsection*{Farbe}
 In diesem Handout nutzte ich die farbliche Hervorhebung von Befehlen, davor muss man das Paket {\color{blue}xcolor} durch {\color{blue}\verb|\usepackage{xcolor}|} einfügen.\\
@@ -167,6 +198,50 @@ Einzelne Worte können mit {\color{blue}\verb|{\color{red}...}|} koloriert werde
 \color{black}
 In diesem Satz ist nur das Wort {\color{red} Apfel} rot.\\
 Und hier ist das letzte Wort in einem farblichen \colorbox{orange}{Kasten}.\\
-\vspace{1cm}
-\huge Viel Spaß mit \LaTeX{!!!}
+
+\section*{Quellen}
+Für das Aufzeigen der Quellen wird einer Paket gebraucht, es lautet wie folgt:\\
+{\color{blue}
+\begin{verbatim}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{sample.bib}
+\end{verbatim}}
+Dabei sorgt backend=biber für die Sortierung der Auflistung,\\
+style=standard definiert den Stil und sorting=ynt legt den Sortierstil fest, hier ist die Abstufung {\color{blue}\underline{y}}ear {\color{blue}\underline{n}}ame {\color{blue}\underline{t}}itel.
+Die Bibliothek wird dann als neue Datei mit dem Namen Name.bib erstellt und hinzugefügt durch {\color{blue}\verb|\addbibresource{sample.bib}|}.\\
+\vspace{3cm}
+Um dann Quellen einzufügen, muss man sie in einer seperaten Datei erstellen und dann per Befehl einfügen.\\
+\underline{Beispiel:}\\
+\color{blue}
+\begin{verbatim}
+@book{harrypotter,
+    author    = "Joanne Kathleen Rowling",
+    title     = "Harry Potter und der Stein der Weisen,
+    year      = "2005",
+    publisher = "Carlsen",
+    isbn   = "978-3-551-35401-3",
+    keywords  = "harrypotter"
+}
+\end{verbatim}
+
+\color{black}
+Zuerst wird durch @ die Art der Quelle angegeben, dann ein Quellreferenzname, welcher beim Quellverweis benutzt wird, dann in diesem Fall der Autor; der Titel; das Jahr; usw... Am Ende wird noch ein Keyword angegeben, damit man Quellen einer Art je nach Keyword oder Quellenart sortieren kann.\\
+Ohne {\color{blue}\verb|\cite{harrypotter}|} kann keine Quelle eingefügt werden, der Quellverweis sieht wie folgt aus.\\
+Das Lieblingsbuch der 2000er war Harry Potter und der Stein der Weisen \cite{harrypotter}, geschrieben von J.K.Rowling, diese ist heute für ihre transfeindlichen Aussagen und Aktionen bekannt.
+
+Das Einfügen durch {\color{blue}\verb|\printbibliography[title={Bücher]|} sieht dann folgendermaßen aus (siehe letzte Seite):\\
+
+Je nach Art der Quelle kann auch eine url hinzugefügt werden, usw...\\
+Um Quellen zu sortieren, kann man bei printbibliography nach z.B. dem angegebenen Quelltypen sortiern, mit {\color{blue}\verb|\printbibliography[type=book,title={nur Buchreferenzen}]|}\\
+auch kann man nach den keywords sortieren, falls zum Beispiel mehrere Harry Potter Teile in einem Artikel erwähnt werden, notiert man bei allen als Schlüsselwort harrypotter und sortiert diese dann so: {\color{blue}\verb|\printbibliography[keyword={harrypotter},title={Harry Potter Serie}]|}\\
+
+\vspace{2cm}
+{\huge Viel Spaß mit \LaTeX{!!!}}
+
+\printbibliography[title={Bücher}]
+
 \end{document}
