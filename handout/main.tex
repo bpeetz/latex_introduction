@@ -1,3 +1,4 @@
+
 % LTeX: language=de-DE
 
 \documentclass[ngerman]{scrreport}
@@ -36,24 +37,28 @@ Dabei können mit \LaTeX viele verschiedene Dokumenttypen erstellt werden, u.a. 
 
 Generell folgen \LaTeX-Befehle folgendem Syntax:
 
+\color{blue}
 \begin{quote}
-    \verb|\befehl[optionale Param.]{verpflichtende Param.}|, \\z.B. \verb|\textit{kursiver Text}|
+    \verb|\befehl[optionale Param.]{verpflichtende Param.}|{\color{black}, \\z.B.} \verb|\textit{kursiver Text}|
 \end{quote}
+\color{black}
 Nicht alle Befehle haben aber Parameter.
 
 Umgebungen, z.B. Listen, werden folgendermaßen erstellt:
 
+\color{blue}
 \begin{quote}
-    \verb|\begin{typ}| \dots \verb|\end{typ}|, \\z.B. \verb|\begin{enumerate}| \dots \verb|\end{enumerate}|
+    \verb|\begin{typ}| \dots \verb|\end{typ}|{\color{black}, \\z.B.} \verb|\begin{enumerate}| \dots \verb|\end{enumerate}|
 \end{quote}
+\color{black}
 
 \section{Aufbau}
 
-\LaTeX-Dateien sind in zwei Bereiche unterteilt: die preamble und der Inhaltsteil. In ersterer werden die Art des Dokuments (\verb|\documentclass{}|), verschiedene Metadaten (u.A. \verb|\author|), und erste Layout-Informationen festgelegt.
-Auch eigene Befehle können mit \verb|\newocmmand{}{}| erstellt werden.
+\LaTeX-Dateien sind in zwei Bereiche unterteilt: die preamble und der Inhaltsteil. In ersterer werden die Art des Dokuments ({\color{blue}\verb|\documentclass{}|}), verschiedene Metadaten (u.A. {\color{blue}\verb|\author|}), und erste Layout-Informationen festgelegt.
+Auch eigene Befehle können mit {\color{blue}\verb|\newocmmand{}{}|} erstellt werden.
 
-Im zweiten Abschnitt wird dann der eigentliche Inhalt erstellt. Dabei können die Informationen wie Titel, Autor etc. mit \verb|\maketitle| dargestellt werden. Mit Kapiteln, Bereichen etc. kann das Dokument gegliedert werden, sowie mit \verb|\tableofcontents| ein Inhaltsverzeichnis generiert werden.
-Auch Quellenangaben und generieren einer Bibliographie ist möglich. Zudem können externe .tex-Dateien mit \verb|\imput{}| ins Dokument eingebunden werden. 
+Im zweiten Abschnitt wird dann der eigentliche Inhalt erstellt. Dabei können die Informationen wie Titel, Autor etc. mit {\color{blue}\verb|\maketitle|} dargestellt werden. Mit Kapiteln, Bereichen etc. kann das Dokument gegliedert werden, sowie mit {\color{blue}\verb|\tableofcontents|} ein Inhaltsverzeichnis generiert werden.
+Auch Quellenangaben und generieren einer Bibliographie ist möglich. Zudem können externe .tex-Dateien mit {\color{blue}\verb|\imput{}|} ins Dokument eingebunden werden. 
 
 Im Folgenden werden nun die wichtigsten Befehle für den Inhaltsbereich erklärt.
 
@@ -123,7 +128,7 @@ Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbi
 \end{figure}
 \raggedright
 \label{fig:LaTeX-logo}
-Mit {\color{blue}\verb|\label{fig:LaTeX-logo}|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo}|} wird diese Zahl hier ausgegeben: 1\ref{fig:LaTeX-logo}.\\
+Mit {\color{blue}\verb|\label{fig:LaTeX-logo}|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo}|} wird diese Zahl hier ausgegeben: 1.\\
 
 \section{Dateien einfügen}
 Ähnlich wie Graphiken können auch andere \LaTeX{}-Dateien eingefügt werden. Dabei wird der Befehl {\color{blue}\verb|\input{}|} genutzt, in die Klammer kommt der Name der anderen Datei mit .tex, diese darf keine {\color{blue}documentclass} beinhalten oder {\color{blue}\verb|begin{document}|}, sowie {\color{blue}\verb|end{document}|}. Gestaltet sie so, dass sie ein direkter Ausschnitt aus der Datei sein könnte. Wenn sch die Dateien nicht im gleichen Ordner befinden muss der Ordnername durch {\color{blue}\verb|{Ordner/Dateiname.tex}|} angegeben werden.
@@ -142,7 +147,7 @@ Man kann
 \end{enumerate}
 darstellen.
 
-\section{Mathematik}
+\section*{Mathematik}
 
 Um auch etwas Mathematik hier einfließen zu lassen, kann man mathematische Formeln darstellen. Wenn man das im Satz tun möchte, passiert das am leichtesten durch das Einklammern mit den {\color{blue}\verb|$…$|}-Zeichen.\\ Möchte man eine mathematische Formel als einzigen Inhalt einer Zeile haben, nutzt man {\color{blue}\verb|\[...\]|} zum Einklammern.\\
 \underline{Beispiel:}\\
@@ -163,6 +168,7 @@ cell7 & cell8 & cell9\\
 \end{verbatim}
 \color{black}
 Durch {\color{blue}\verb|\end{tabular}|} wird die Tabellenumgebung geschlossen.
+\vspace{4cm}
 
 \subsection{Grenzen}
 Um die Tabelle vertikal einzugrenzen kann man am Anfang: {\color{blue}\begin{verbatim}{c|c|c|}\end{verbatim}} notieren und um horizontal einzugrenzen, schreibt man am Anfang und Ende der Zellenbeschreibung {\color{blue}\verb|\hline|}, das kann man auch doppelt schreiben.\\
@@ -204,7 +210,7 @@ cell7 & cell8 & cell9\\
 \end{tabular}\\
 \vspace{0.5cm}
 
-\section{Interessante Befehle}
+\section*{Interessante Befehle}
 
 \subsection{Abstände}
 Man kann sowohl horizontale als auch vertikale Abstände einfügen, das macht man mit den Befehlen: {\color{blue}\verb|\hspace{1cm}|} oder {\color{blue}\verb|\vspace{1cm}|}\\
@@ -215,7 +221,7 @@ Durch {\color{blue}\verb|\textit{}|} können auch ganze Sätze kursiv geschriebe
 \underline{Beispiel:}\\
 \textit{Dieser ganze Satz ist kursiv!!}\\
 \textbf{Dieser ganze Satz ist fett gedruckt!!}
-\vspace{2cm}
+
 \subsection{Befehle als normalen Text}
 Um etwa diesen Text in \LaTeX{} erstellen und dabei die Befehle nennen zu können, muss man wissen, wie man Befehle notiert, ohne dass diese als Befehl ausgeführt werden.\\
 Jenes tut man durch den Befehl:\\
@@ -249,7 +255,6 @@ sorting=ynt
 Dabei sorgt backend=biber für die Sortierung der Auflistung,\\
 style=standard definiert den Stil und sorting=ynt legt den Sortierstil fest, hier ist die Abstufung {\color{blue}\underline{y}}ear {\color{blue}\underline{n}}ame {\color{blue}\underline{t}}itel.
 Die Bibliothek wird dann als neue Datei mit dem Namen Name.bib erstellt und hinzugefügt durch {\color{blue}\verb|\addbibresource{sample.bib}|}.\\
-\vspace{3cm}
 Um dann Quellen einzufügen, muss man sie in einer seperaten Datei erstellen und dann per Befehl einfügen.\\
 \underline{Beispiel:}\\
 \color{blue}
@@ -274,11 +279,13 @@ Das Einfügen durch {\color{blue}\verb|\printbibliography[title={Bücher]|} sieh
 Je nach Art der Quelle kann auch eine url hinzugefügt werden, usw...\\
 Um Quellen zu sortieren, kann man bei printbibliography nach z.B. dem angegebenen Quelltypen sortiern, mit {\color{blue}\verb|\printbibliography[type=book,title={nur Buchreferenzen}]|}\\
 auch kann man nach den keywords sortieren, falls zum Beispiel mehrere Harry Potter Teile in einem Artikel erwähnt werden, notiert man bei allen als Schlüsselwort harrypotter und sortiert diese dann so: {\color{blue}\verb|\printbibliography[keyword={harrypotter},title={Harry Potter Serie}]|}\\
+\vspace{4cm}
 
 \section{Für deutschsprachige Dokumente}
 
 Um einige Elemente der \LaTeX-Formatierung an die deutsche Sprache anzupassen, müssen im preamble einige Änderungen vorgenommen werden.
 
+\color{blue}
 \begin{verbatim}
     \documentclass[ngerman]{article}
 
@@ -286,11 +293,16 @@ Um einige Elemente der \LaTeX-Formatierung an die deutsche Sprache anzupassen, m
     \usepackage{babel}
     \usepackage{csquotes}
 \end{verbatim}
+\color{black}
 
-Das Paket \texttt{babel} übersetzt generierte Texte wie \textit{table of contents} ins Deutsche, das Paket \texttt{csquotes} sorgt für deutsche Anführungszeichen. Damit diese Pakete wissen, dass das Dokument deutsch ist, wird \texttt{ngerman} (d.h. \underline{n}eue \underline{deutsche} Rechtschreibung) als Parameter in \verb|\documentclass[]{}| übergeben.
+Das Paket {\color{blue}\texttt{babel}} übersetzt generierte Texte wie {\color{blue}\textit{table of contents}} ins Deutsche, das Paket {\color{blue}\texttt{csquotes}} sorgt für deutsche Anführungszeichen. Damit diese Pakete wissen, dass das Dokument deutsch ist, wird {\color{blue}\texttt{ngerman}} (d.h. \underline{n}eue \underline{deutsche} Rechtschreibung) als Parameter in {\color{blue}\verb|\documentclass[]{}|} übergeben.
 
 \section{Für weitere Informationen}
-Mehr Informationen zu den einzelnen Befehlen sowie weitere Befehle findet ihr auch unter auf Englisch unter \url{https://www.overleaf.com/learn} oder auf Deutsch unter \url{https://www.learnlatex.org/de/}.
+Mehr Informationen zu den einzelnen Befehlen sowie weitere Befehle findet ihr auch unter auf Englisch unter \url{https://www.overleaf.com/learn} oder auf Deutsch unter \url{https://www.learnlatex.org/de/}.\\
+Falls es spezifische Probleme gibt, findet man die Antwort meist auf \url{https://tex.stackexchange.com}
+
+\subsection{Quellenverweis}
+LaTeX-logo : \url{https://de.m.wikipedia.org/wiki/Datei:LaTeX_logo.svg}
 \vspace{2cm}
 
 {\huge Viel Spaß mit \LaTeX{!!!}}
