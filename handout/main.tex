@@ -3,6 +3,7 @@
 \documentclass[ngerman]{scrreport}
 \usepackage{babel}
 \usepackage{csquotes}
+\usepackage{hyperref}
 
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -21,34 +22,69 @@ sorting=ynt
 \begin{document}
 \maketitle
 
-\chapter*{\centering Zusätzliche \LaTeX{}-Befehle}
+\tableofcontents
 
-\section*{Schriftschnitte}
+\chapter{\centering\LaTeX: Einführung}
+
+\section{Grundprinzip}
+
+Um mit \LaTeX ein Dokument zu erstellen, schreibt man nach eine unformatierte .tex-Datei nach \LaTeX-Syntax, die danach von einer \LaTeX-Installation zum fertigen stilisierten Dokument kompiliert wird. 
+Besonders für Dokumente, in denen sich Fließtext und komplizierte Graphiken abwechseln, ist \LaTeX hilfreich. Mit erweiternden Paketen können u.A. komplizierte mathematische und chemische Formeln, Schachbretter, musikalische Noten, etc. dargestellt werden.
+Dabei können mit \LaTeX viele verschiedene Dokumenttypen erstellt werden, u.a. Bücher, wissenschaftliche Artikel, Präsentationen, \dots. 
+
+\section{Syntax}
+
+Generell folgen \LaTeX-Befehle folgendem Syntax:
+
+\begin{quote}
+    \verb|\befehl[optionale Param.]{verpflichtende Param.}|, \\z.B. \verb|\textit{kursiver Text}|
+\end{quote}
+Nicht alle Befehle haben aber Parameter.
+
+Umgebungen, z.B. Listen, werden folgendermaßen erstellt:
+
+\begin{quote}
+    \verb|\begin{typ}| \dots \verb|\end{typ}|, \\z.B. \verb|\begin{enumerate}| \dots \verb|\end{enumerate}|
+\end{quote}
+
+\section{Aufbau}
+
+\LaTeX-Dateien sind in zwei Bereiche unterteilt: die preamble und der Inhaltsteil. In ersterer werden die Art des Dokuments (\verb|\documentclass{}|), verschiedene Metadaten (u.A. \verb|\author|), und erste Layout-Informationen festgelegt.
+Auch eigene Befehle können mit \verb|\newocmmand{}{}| erstellt werden.
+
+Im zweiten Abschnitt wird dann der eigentliche Inhalt erstellt. Dabei können die Informationen wie Titel, Autor etc. mit \verb|\maketitle| dargestellt werden. Mit Kapiteln, Bereichen etc. kann das Dokument gegliedert werden, sowie mit \verb|\tableofcontents| ein Inhaltsverzeichnis generiert werden.
+Auch Quellenangaben und generieren einer Bibliographie ist möglich. Zudem können externe .tex-Dateien mit \verb|\imput{}| ins Dokument eingebunden werden. 
+
+Im Folgenden werden nun die wichtigsten Befehle für den Inhaltsbereich erklärt.
+
+\chapter{\centering Nützliche \LaTeX{}-Befehle}
+
+\section{Schriftschnitte}
 Um einzelne Worte \textit{kursiv} zu schreiben, nutzt man den Befehl {\color{blue}\verb|\textit{...}|}.\\
 \textbf{Fett drucken:} {\color{blue}\verb|\textbf{...}|}\\
 \underline{Unterstreichen:} {\color{blue}\verb|\underline{...}|}\\
 Man kann auch unabhängig vom restlichen Text einzelne Wörter \emph{hervorheben} durch {\color{blue}\verb|\emph{...}|}. Dabei wird das Wort meist kursiv geschrieben, außer der ganze Satz wurde schon in kursiv geschrieben. Es passt sich auch anderen Schriftschnitten an.
 
 
-\section*{Position der Elemente}
+\section{Position der Elemente}
 Durch den Befehl {\color{blue}\verb|\centering|} kann man Texte und Bilder zentrieren, unter anderem muss man manchmal Umgebungen erstellen, also {\color{blue}\verb|\begin{center}|} und {\color{blue}\verb|\end{center}|} notieren.\\
 \raggedright Der Befehl {\color{blue}\verb|\raggedright|} lässt den gesamten folgenden Text linksbündig schreiben.\\
 \raggedleft Der Befehl {\color{blue}\verb|\raggedleft|} lässt den gesamten folgenden Text rechtsbündig schreiben.
 \raggedright
 
-\section*{Paragraphen}
+\section{Paragraphen}
 Um einen neuen Paragraphen zu erstellen, kann man entweder den Befehl {\color{blue}\verb|\newline|} \newline verwenden.\\ Oder {\color{blue}\verb|\\|}, dann wird auch \\ in der nächsten Zeile weitergeschrieben.
 
-\section*{Kapitel und Abschnitte}
+\section{Kapitel und Abschnitte}
 Kapitel werden durch den Befehl {\color{blue}\verb|\chapter{}|} gebildet, dabei wird auch jedes Mal dem Namen eine Zahl zugeordnet, möchte man dies umgehen, schreibt man {\color{blue}\verb|\chapter*{}|}.\\
 Das Gleiche gilt auch für die Abschnitte {\color{blue}\verb|\section{}|} und {\color{blue}\verb|\subsection{}|}, der Name ist dabei fett gedruckt und größer als der normale Text.
 
-\section*{Kommentare}
+\section{Kommentare}
 Kommentare werden mit einem {\color{blue}\ \%} - Zeichen eingeleitet und dienen dem Schreiber.
 \newline
 \underline{Beispiel:} {\color{blue}\verb|%Dieser Befehl dient dem Einfügen von Bildern.|}
 
-\section*{Kopfzeilen und Fußnoten}
+\section{Kopfzeilen und Fußnoten}
 Für die Kopzeile und Fußnote muss ein Paket durch {\color{blue}\verb|\usepackage{fancyhdr}|} eingefügt werden, sowie das Ändern der Seite durch {\color{blue}\verb|\pagestyle{fancy}|}.\\
 Dabei fügen die Befehle:\\
 {\color{blue}\verb|\fancyhead[]{} \fancyfoot[]{}|} Kopfzeilen und Fußnoten hinzu.\\
@@ -58,11 +94,12 @@ Schlussendlich sieht ein solcher Befehl so aus:\\
 {\color{blue}\verb|\fancyfoot[LO, RE]{Diese Fußnote taucht linksbündig auf allen ungerade und|}\\
 {\color{blue}\verb|rechtsbündig auf allen geraden Seiten auf}|}
 
-\section*{Schriftgrößen}
+\section{Schriftgrößen}
 Um Worte oder einzelne Zeichen zu vergrößn oder verkleinern, sind die Befehle {\color{blue}\verb|{\huge} {\large} {\small} {\footnotesize}|} von Nutzen.\\
 Wenn man ganze Texte vergrößer/-kleinern will, lässt man die geschwungenen Klammern weg und schreibt am Ende {\color{blue}\verb|\normalsize|}.
 
-\section*{Graphiken}
+\newpage
+\section{Graphiken}
 Bilder o.Ä. können erst eingefügt werden, wenn ein Paket mit vordefinierten Befehlen am Anfang mit eingebunden wird, hier wäre es {\color{blue}\verb|\usepackage{graphicx}|}.
 \\Um das Bild einfügen zu können, muss man angeben, wo die Graphik in deinen Dateien liegt.\\
 \underline{Den Pfad zum Bild angeben:} {\color{blue}\verb|\graphicspath{{Downloads/beispiel.png}}|}\\
@@ -89,10 +126,10 @@ Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbi
 \label{fig:LaTeX-logo}
 Mit {\color{blue}\verb|\label{fig:LaTeX-logo}|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo}|} wird diese Zahl hier ausgegeben: 1\ref{fig:LaTeX-logo}.\\
 
-\section*{Dateien einfügen}
+\section{Dateien einfügen}
 Ähnlich wie Graphiken können auch andere \LaTeX{}-Dateien eingefügt werden. Dabei wird der Befehl {\color{blue}\verb|\input{}|} genutzt, in die Klammer kommt der Name der anderen Datei mit .tex, diese darf keine {\color{blue}documentclass} beinhalten oder {\color{blue}\verb|begin{document}|}, sowie {\color{blue}\verb|end{document}|}. Gestaltet sie so, dass sie ein direkter Ausschnitt aus der Datei sein könnte. Wenn sch die Dateien nicht im gleichen Ordner befinden muss der Ordnername durch {\color{blue}\verb|{Ordner/Dateiname.tex}|} angegeben werden.
 
-\section*{Listen}
+\section{Listen}
 Bei Listen muss zuerst eine Umgebung erstellt werden, also ein Bereich, in welchem die Liste sich befindet.
 \begin{itemize}
     \item Zuerst schreibt man also: {\color{blue}\verb|\begin{itemize}|} oder {\color{blue}\verb|{enumerate}|}.
@@ -114,7 +151,7 @@ Der Flächeninhalt eines Kreises wird durch die Formel $A=\pi×r^2$ beschrieben.
 Der Flächeninhalt eines Kreises wird durch die Formel:
 \[A=\pi×r^2\] beschrieben.
 
-\section*{Tabellen}
+\section{Tabellen}
 Um eine Tabelle zu erstellen, braucht es wieder die Eingrenzung einer Umgebung, durch {\color{blue}\verb|\begin{tabular}{c c c}|} oder {\color{blue}\verb|{c r c}|} oder {\color{blue}\verb|{l r l}|}, usw.\\
 Die zweite Klammer gibt an, ob der Inhalt einer Tabellenzelle {\color{blue}\underline{c}}entriert, auf der {\color{blue}\underline{l}}inken oder auf der {\color{blue}\underline{r}}echten Seite ist.\\
 In diesem Fall gibt es drei×drei Tabellenzellen.\\
@@ -128,7 +165,7 @@ cell7 & cell8 & cell9\\
 \color{black}
 Durch {\color{blue}\verb|\end{tabular}|} wird die Tabellenumgebung geschlossen.
 
-\subsection*{Grenzen}
+\subsection{Grenzen}
 Um die Tabelle vertikal einzugrenzen kann man am Anfang: {\color{blue}\begin{verbatim}{c|c|c|}\end{verbatim}} notieren und um horizontal einzugrenzen, schreibt man am Anfang und Ende der Zellenbeschreibung {\color{blue}\verb|\hline|}, das kann man auch doppelt schreiben.\\
 \underline{Beispiel:}\\
 \vspace{0.5cm}
@@ -155,7 +192,7 @@ cell7 & cell8 & cell9\\
 \end{verbatim}
 \color{black}
 
-\subsubsection*{Zellenverschmelzung}
+\subsubsection{Zellenverschmelzung}
 Zellenfelder kann man durch den Befehl: {\color{blue}\verb|\multicolumn{2}}{c}{cell 2}|} miteinandervereinen.\\
 \underline{Beispiel:}\\
 \vspace{0.5cm}
@@ -170,11 +207,11 @@ cell7 & cell8 & cell9\\
 
 \section*{Interessante Befehle}
 
-\subsection*{Abstände}
+\subsection{Abstände}
 Man kann sowohl horizontale als auch vertikale Abstände einfügen, das macht man mit den Befehlen: {\color{blue}\verb|\hspace{1cm}|} oder {\color{blue}\verb|\vspace{1cm}|}\\
 Das kann dann so \hspace{3cm} aussehen oder so \vspace{1cm}\\ aussehen.
 
-\subsection*{Übergreifende Schriftart}
+\subsection{Übergreifende Schriftart}
 Durch {\color{blue}\verb|\textit{}|} können auch ganze Sätze kursiv geschrieben werden. Für kursiv benutzt man {\color{blue}textit}, für fett {\color{blue}textbf} und bei unterstrichenen Sätzen {\color{blue}underline}, dabei kann ein ganzer Satz von den Klammern umschlossen werden. \\
 \underline{Beispiel:}\\
 \textit{Dieser ganze Satz ist kursiv!!}\\
@@ -188,7 +225,7 @@ Jenes tut man durch den Befehl:\\
 \color{black}
 Falls man ganze Bereiche von Befehlen als Text möchte, erstellt man eine Umgebung mit {\color{blue}\verb|\begin{verbatim}|} und beendet sie mit {\color{blue}\verb|\end{verbatim}|}.
 
-\subsection*{Farbe}
+\subsection{Farbe}
 In diesem Handout nutzte ich die farbliche Hervorhebung von Befehlen, davor muss man das Paket {\color{blue}xcolor} durch {\color{blue}\verb|\usepackage{xcolor}|} einfügen.\\
 Durch {\color{blue}\verb|\color|} wird dann der ganze folgende Text in der Wahlfarbe eingefärbt.\\
 Auch hier kann man alternativ eine Umgebung mit {\color{blue}\verb|\begin{red}|} und mit {\color{blue}\verb|\end{red}|} erstellen.\\
@@ -199,7 +236,7 @@ Einzelne Worte können mit {\color{blue}\verb|{\color{red}...}|} koloriert werde
 In diesem Satz ist nur das Wort {\color{red} Apfel} rot.\\
 Und hier ist das letzte Wort in einem farblichen \colorbox{orange}{Kasten}.\\
 
-\section*{Quellen}
+\section{Quellenangaben}
 Für das Aufzeigen der Quellen wird einer Paket gebraucht, es lautet wie folgt:\\
 {\color{blue}
 \begin{verbatim}
@@ -239,7 +276,10 @@ Je nach Art der Quelle kann auch eine url hinzugefügt werden, usw...\\
 Um Quellen zu sortieren, kann man bei printbibliography nach z.B. dem angegebenen Quelltypen sortiern, mit {\color{blue}\verb|\printbibliography[type=book,title={nur Buchreferenzen}]|}\\
 auch kann man nach den keywords sortieren, falls zum Beispiel mehrere Harry Potter Teile in einem Artikel erwähnt werden, notiert man bei allen als Schlüsselwort harrypotter und sortiert diese dann so: {\color{blue}\verb|\printbibliography[keyword={harrypotter},title={Harry Potter Serie}]|}\\
 
+\section{Für weitere Informationen}
+Mehr Informationen zu den einzelnen Befehlen sowie weitere Befehle findet ihr auch unter auf Englisch unter \url{https://www.overleaf.com/learn} oder auf Deutsch unter \url{https://www.learnlatex.org/de/}.
 \vspace{2cm}
+
 {\huge Viel Spaß mit \LaTeX{!!!}}
 
 \printbibliography[title={Bücher}]
