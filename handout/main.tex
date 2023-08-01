@@ -1,6 +1,4 @@
-
 % LTeX: language=de-DE
-
 \documentclass[ngerman]{scrreport}
 \usepackage{babel}
 \usepackage{csquotes}
@@ -13,7 +11,7 @@ backend=biber,
 style=alphabetic,
 sorting=ynt
 ]{biblatex}
-\addbibresource{sample.bib}
+\addbibresource{beispiel.bib}
 
 
 \title{\LaTeX{}-Handout}
@@ -28,10 +26,9 @@ sorting=ynt
 \chapter{\centering\LaTeX: Einführung}
 
 \section{Grundprinzip}
-
-Um mit \LaTeX ein Dokument zu erstellen, schreibt man nach eine unformatierte .tex-Datei nach \LaTeX-Syntax, die danach von einer \LaTeX-Installation zum fertigen stilisierten Dokument kompiliert wird. 
-Besonders für Dokumente, in denen sich Fließtext und komplizierte Graphiken abwechseln, ist \LaTeX hilfreich. Mit erweiternden Paketen können u.A. komplizierte mathematische und chemische Formeln, Schachbretter, musikalische Noten, etc. dargestellt werden.
-Dabei können mit \LaTeX viele verschiedene Dokumenttypen erstellt werden, u.a. Bücher, wissenschaftliche Artikel, Präsentationen, \dots. 
+Um mit \LaTeX ein Dokument zu erstellen, schreibt man nach eine unformatierte \texttt{.tex} Datei nach \LaTeX-Syntax, die danach von einer \LaTeX-Installation zum fertigen stilisierten Dokument kompiliert wird.
+Besonders für Dokumente, in denen sich Fließtext und komplizierte Grafiken abwechseln, ist \LaTeX hilfreich. Mit erweiternden Paketen können u.~A. komplizierte mathematische und chemische Formeln, Schachbretter, musikalische Noten, etc. dargestellt werden.
+Dabei können mit \LaTeX viele verschiedene Dokumenttypen erstellt werden, u.~a. Bücher, wissenschaftliche Artikel, Präsentationen, \dots
 
 \section{Syntax}
 
@@ -39,26 +36,26 @@ Generell folgen \LaTeX-Befehle folgendem Syntax:
 
 \color{blue}
 \begin{quote}
-    \verb|\befehl[optionale Param.]{verpflichtende Param.}|{\color{black}, \\z.B.} \verb|\textit{kursiver Text}|
+	\verb|\befehl[optionale Param.]{verpflichtende Param.}|{\color{black}, \\z.~B.} \verb|\textit{kursiver Text}|
 \end{quote}
 \color{black}
 Nicht alle Befehle haben aber Parameter.
 
-Umgebungen, z.B. Listen, werden folgendermaßen erstellt:
+Umgebungen, z.~B. Listen, werden folgendermaßen erstellt:
 
 \color{blue}
 \begin{quote}
-    \verb|\begin{typ}| \dots \verb|\end{typ}|{\color{black}, \\z.B.} \verb|\begin{enumerate}| \dots \verb|\end{enumerate}|
+	\verb|\begin{typ}| \dots \verb|\end{typ}|{\color{black}, \\z.~B.} \verb|\begin{enumerate}| \dots \verb|\end{enumerate}|
 \end{quote}
 \color{black}
 
 \section{Aufbau}
 
-\LaTeX-Dateien sind in zwei Bereiche unterteilt: die preamble und der Inhaltsteil. In ersterer werden die Art des Dokuments ({\color{blue}\verb|\documentclass{}|}), verschiedene Metadaten (u.A. {\color{blue}\verb|\author|}), und erste Layout-Informationen festgelegt.
+\LaTeX-Dateien sind in zwei Bereiche unterteilt: die Präambel und der Inhaltsteil. In ersterer werden die Art des Dokuments ({\color{blue}\verb|\documentclass{}|}), verschiedene Metadaten (u.~A. {\color{blue}\verb|\author|}), und erste Layout-Informationen festgelegt.
 Auch eigene Befehle können mit {\color{blue}\verb|\newocmmand{}{}|} erstellt werden.
 
 Im zweiten Abschnitt wird dann der eigentliche Inhalt erstellt. Dabei können die Informationen wie Titel, Autor etc. mit {\color{blue}\verb|\maketitle|} dargestellt werden. Mit Kapiteln, Bereichen etc. kann das Dokument gegliedert werden, sowie mit {\color{blue}\verb|\tableofcontents|} ein Inhaltsverzeichnis generiert werden.
-Auch Quellenangaben und generieren einer Bibliographie ist möglich. Zudem können externe .tex-Dateien mit {\color{blue}\verb|\imput{}|} ins Dokument eingebunden werden. 
+Auch Quellenangaben und generieren einer Bibliografie ist möglich. Zudem können externe \texttt{.tex} Dateien mit {\color{blue}\verb|\imput{}|} ins Dokument eingebunden werden.
 
 Im Folgenden werden nun die wichtigsten Befehle für den Inhaltsbereich erklärt.
 
@@ -77,8 +74,8 @@ Durch den Befehl {\color{blue}\verb|\centering|} kann man Texte und Bilder zentr
 \raggedleft Der Befehl {\color{blue}\verb|\raggedleft|} lässt den gesamten folgenden Text rechtsbündig schreiben.
 \raggedright
 
-\section{Paragraphen}
-Um einen neuen Paragraphen zu erstellen, kann man entweder den Befehl {\color{blue}\verb|\newline|} \newline verwenden.\\ Oder {\color{blue}\verb|\\|}, dann wird auch \\ in der nächsten Zeile weitergeschrieben.
+\section{Paragrafen}
+Um einen neuen Paragrafen zu erstellen, kann man entweder den Befehl {\color{blue}\verb|\newline|} \newline verwenden.\\ Oder {\color{blue}\verb|\\|}, dann wird auch \\ in der nächsten Zeile weitergeschrieben.
 
 \section{Kapitel und Abschnitte}
 Kapitel werden durch den Befehl {\color{blue}\verb|\chapter{}|} gebildet, dabei wird auch jedes Mal dem Namen eine Zahl zugeordnet, möchte man dies umgehen, schreibt man {\color{blue}\verb|\chapter*{}|}.\\
@@ -87,70 +84,78 @@ Das Gleiche gilt auch für die Abschnitte {\color{blue}\verb|\section{}|} und {\
 \section{Kommentare}
 Kommentare werden mit einem {\color{blue}\ \%} - Zeichen eingeleitet und dienen dem Schreiber.
 \newline
-\underline{Beispiel:} {\color{blue}\verb|%Dieser Befehl dient dem Einfügen von Bildern.|}
+\underline{Beispiel:} {\color{blue}\verb|% Dieser Befehl dient dem Einfügen von Bildern.|}
 
 \section{Kopfzeilen und Fußnoten}
-Für die Kopzeile und Fußnote muss ein Paket durch {\color{blue}\verb|\usepackage{fancyhdr}|} eingefügt werden, sowie das Ändern der Seite durch {\color{blue}\verb|\pagestyle{fancy}|}.\\
+Für die Kopfzeile und Fußnote muss ein Paket durch {\color{blue}\verb|\usepackage{fancyhdr}|} eingefügt werden, sowie das Ändern der Seite durch {\color{blue}\verb|\pagestyle{fancy}|}.\\
 Dabei fügen die Befehle:\\
 {\color{blue}\verb|\fancyhead[]{} \fancyfoot[]{}|} Kopfzeilen und Fußnoten hinzu.\\
 In die eckigen Klammern kommt dabei erstmal die Position der Erweiterung durch {\color{blue}L R C} und dazu kommt dann ein {\color{blue}O} für eine ungerade Seite oder {\color{blue}E} für eine gerade Seite.
-Diese Erweiterungen tauchen auf jeder ungerade oder gearde Seiten auf, das Prinzip ist bei der Dokumentenklasse book enthalten, man kann es durch {\color{blue}\verb|[twoside]{report}|} bei reports oder articles ergänzen, mit Kapiteln sind die Ergunzungen  nicht verträglich.\\
+Diese Erweiterungen tauchen auf jeder ungerade oder gerade Seiten auf, das Prinzip ist bei der Dokumentenklasse \texttt{book} enthalten, man kann es durch {\color{blue}\verb|[twoside]{report}|} bei \texttt{reports} oder \texttt{articles} ergänzen, mit Kapiteln sind die Ergänzungen  nicht verträglich.\\
 Schlussendlich sieht ein solcher Befehl so aus:\\
-{\color{blue}\verb|\fancyfoot[LO, RE]{Diese Fußnote taucht linksbündig auf allen ungerade und|}\\
-{\color{blue}\verb|rechtsbündig auf allen geraden Seiten auf}|}
+{\color{blue}\verb|\fancyfoot[LO, RE]{Diese Fußnote taucht linksbündig auf allen ungeraden,|}\\
+{\color{blue}\verb|rechtsbündig auf allen geraden Seiten auf}|}.
 
 \section{Schriftgrößen}
-Um Worte oder einzelne Zeichen zu vergrößn oder verkleinern, sind die Befehle {\color{blue}\verb|{\huge} {\large} {\small} {\footnotesize}|} von Nutzen.\\
-Wenn man ganze Texte vergrößer/-kleinern will, lässt man die geschwungenen Klammern weg und schreibt am Ende {\color{blue}\verb|\normalsize|}.
+Um Worte oder einzelne Zeichen zu vergrößern oder verkleinern, sind die Befehle {\color{blue}\verb|{\huge} {\large} {\small} {\footnotesize}|} von Nutzen.\\
+Wenn man ganze Texte vergrößer oder verkleinern will, lässt man die geschwungenen Klammern weg und schreibt am Ende {\color{blue}\verb|\normalsize|}.
 
-\section{Graphiken}
-Bilder o.Ä. können erst eingefügt werden, wenn ein Paket mit vordefinierten Befehlen am Anfang mit eingebunden wird, hier wäre es {\color{blue}\verb|\usepackage{graphicx}|}.
-\\Um das Bild einfügen zu können, muss man angeben, wo die Graphik in deinen Dateien liegt.\\
-\underline{Den Pfad zum Bild angeben:} {\color{blue}\verb|\graphicspath{{Downloads/beispiel.png}}|}\\
-Das Bild \texttt{beispiel.png} liegt hier in einem Ordner "Downloads".\\ Zusätzlich kann die Größe des Bildes durch {\color{blue} \verb|"width="|} angegeben werden, in diesem Fall ist das Bild 50\% so groß, wie der Text, auch kann man sich auf die Texthöhe mit {\color{blue}"height=\verb|\textheight"|} beziehen. \\
+\section{Grafiken}
+Bilder o.~Ä. können erst eingefügt werden, wenn ein Paket mit vordefinierten Befehlen am Anfang mit eingebunden wird, hier wäre es {\color{blue}\verb|\usepackage{graphicx}|}.
+\\Um das Bild einfügen zu können, muss man angeben, wo die Grafik in deinen Dateien liegt.\\
+\underline{Den Pfad zum Bild angeben:} {\color{blue}\verb|\graphicspath{{Downloads/beispiel.png}}|}.\\
+Das Bild \texttt{beispiel.png} liegt hier in einem Ordner \texttt{Downloads}.\\ Zusätzlich kann die Größe des Bildes durch {\color{blue} \verb|"width="|} angegeben werden, in diesem Fall ist das Bild 50 \% so groß, wie der Text, auch kann man sich auf die Texthöhe mit {\color{blue}\verb|"height=\textheight"|} beziehen. \\
 \underline{Einfügen des Bildes:} {\color{blue}\verb|\includegraphics[width=0.5\textwidth]{LaTeX-logo}|}\\
 \underline{Beispiel:}
 \graphicspath{{resources}}
 \begin{figure}[h]
-\includegraphics[width=0.5\textwidth]{LaTeX-logo}
-\centering
+	\includegraphics[width=0.5\textwidth]{LaTeX-logo}
+	\centering
 \end{figure}\\
 Mit {\color{blue}\verb|\begin{figure}[h]|} und {\color{blue}\verb|\end{figure}|} kann man noch den Ankerpunkt des Bildes angeben.\\
-{\color{blue}t} = am Anfang der Seite  |  {\color{blue}b} = am Ende der Seite \\
-{\color{blue}h} = ungefähr an der Stelle, an welcher man es im Code geschrieben hat\\
+\begin{description}
+	\item [{\color{blue}t}] am Anfang der Seite
+	\item [{\color{blue}b}] am Ende der Seite
+	\item [{\color{blue}h}] ungefähr an der Stelle, an welcher man es im Code geschrieben hat\\
+\end{description}
 \vspace{0.5cm}
-Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbildung kann verwiesen werden, der Label- und Captionbefehl muss dabei im {\color{blue}\verb|begin{figure}|} Teil stehen.\\
+Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbildung kann verwiesen werden, der Label- und Captionbefehl muss dabei im {\color{blue}\verb|\begin{figure}|} Teil stehen.\\
 \graphicspath{{resources/}}
 \begin{figure}[h]
-\centering
-\includegraphics[width=0.75\textwidth]{LaTeX-logo}
-\begin{center}Figure 1: Mit {\color{blue}\verb|\caption{}|} erstellt man diesen Text.\end{center}
+	\centering
+	\includegraphics[width=0.75\textwidth]{LaTeX-logo}
+	\begin{center}Abbildung 1: Mit {\color{blue}\verb|\caption{}|} erstellt man diesen Text.\end{center}
 \end{figure}
 \raggedright
 \label{fig:LaTeX-logo}
+% TODO(bpeetz): Soll man hier vllt die wirkliche number referenzieren, statt 1 hardzucoden?
 Mit {\color{blue}\verb|\label{fig:LaTeX-logo}|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo}|} wird diese Zahl hier ausgegeben: 1.\\
 
 \section{Dateien einfügen}
-Ähnlich wie Graphiken können auch andere \LaTeX{}-Dateien eingefügt werden. Dabei wird der Befehl {\color{blue}\verb|\input{}|} genutzt, in die Klammer kommt der Name der anderen Datei mit .tex, diese darf keine {\color{blue}documentclass} beinhalten oder {\color{blue}\verb|begin{document}|}, sowie {\color{blue}\verb|end{document}|}. Gestaltet sie so, dass sie ein direkter Ausschnitt aus der Datei sein könnte. Wenn sch die Dateien nicht im gleichen Ordner befinden muss der Ordnername durch {\color{blue}\verb|{Ordner/Dateiname.tex}|} angegeben werden.
+Ähnlich wie Grafiken können auch andere \LaTeX{}-Dateien eingefügt werden.
+Dabei wird der Befehl {\color{blue}\verb|\input{}|} genutzt, in die Klammer kommt der Name der anderen Datei mit \texttt{.tex}, diese darf keine {\color{blue}\texttt{documentclass}} beinhalten oder {\color{blue}\verb|\begin{document}|}, sowie {\color{blue}\verb|\end{document}|}.
+Gestaltet sie so, dass sie ein direkter Ausschnitt aus der Datei sein könnte.
+Wenn sich die Dateien nicht im gleichen Ordner befinden, muss der Ordnername durch {\color{blue}\verb|{Ordner/Dateiname.tex}|} angegeben werden.
 
 \section{Listen}
 Bei Listen muss zuerst eine Umgebung erstellt werden, also ein Bereich, in welchem die Liste sich befindet.
 \begin{itemize}
-    \item Zuerst schreibt man also: {\color{blue}\verb|\begin{itemize}|} oder {\color{blue}\verb|{enumerate}|}.
-    \item Mit {\color{blue}\verb|\item|} werden dann die einzelnen Listenpunkte definiert.
-    \item Um die Liste zu beenden, schreibt man dann: {\color{blue}\verb|\end{itemize}|} oder {\color{blue}\verb|{enumerate}|}.
+	\item Zuerst schreibt man also: {\color{blue}\verb|\begin{itemize}|} oder {\color{blue}\verb|{enumerate}|}.
+	\item Mit {\color{blue}\verb|\item|} werden dann die einzelnen Listenpunkte definiert.
+	\item Um die Liste zu beenden, schreibt man dann: {\color{blue}\verb|\end{itemize}|} oder {\color{blue}\verb|{enumerate}|}.
 \end{itemize}
 Man kann
 \begin{enumerate}
-    \item mit {\color{blue}itemize} ungeordnete Listen (mit Aufzählungspunkt) und 
-    \item mit {\color{blue}enumerate} geordnete Listen
+	\item mit {\color{blue}\texttt{itemize}} ungeordnete Listen (mit Aufzählungspunkt) und
+	\item mit {\color{blue}\texttt{enumerate}} geordnete Listen
 \end{enumerate}
 darstellen.
 
 \section*{Mathematik}
-
-Um auch etwas Mathematik hier einfließen zu lassen, kann man mathematische Formeln darstellen. Wenn man das im Satz tun möchte, passiert das am leichtesten durch das Einklammern mit den {\color{blue}\verb|$…$|}-Zeichen.\\ Möchte man eine mathematische Formel als einzigen Inhalt einer Zeile haben, nutzt man {\color{blue}\verb|\[...\]|} zum Einklammern.\\
+Um auch etwas Mathematik hier einfließen zu lassen, kann man mathematische Formeln darstellen. Wenn man das im Satz tun möchte, passiert das am leichtesten durch das Einklammern mit den {\color{blue}\verb|$…$|} - Zeichen.\\
+Möchte man eine mathematische Formel als einzigen Inhalt einer Zeile haben, nutzt man {\color{blue}\verb|\[...\]|} zum Einklammern.\\
 \underline{Beispiel:}\\
+% TODO(bpeetz): Ergibt hier `\cdot{}` statt dem '×' Sinn, weil es ja nicht gerendert wird?
 Der Flächeninhalt eines Kreises wird durch die Formel $A=\pi×r^2$ beschrieben.\\
 Der Flächeninhalt eines Kreises wird durch die Formel:
 \[A=\pi×r^2\] beschrieben.
@@ -175,13 +180,13 @@ Um die Tabelle vertikal einzugrenzen kann man am Anfang: {\color{blue}\begin{ver
 \underline{Beispiel:}\\
 \vspace{0.5cm}
 \begin{tabular}{||c|c|c||}
-\hline\hline
-cell1 & cell2 & cell3\\
-\hline
-cell4 & cell5 & cell6\\
-\hline
-cell7 & cell8 & cell9\\
-\hline\hline
+	\hline\hline
+	cell1 & cell2 & cell3 \\
+	\hline
+	cell4 & cell5 & cell6 \\
+	\hline
+	cell7 & cell8 & cell9 \\
+	\hline\hline
 \end{tabular}
 \color{blue}
 \begin{verbatim}
@@ -202,22 +207,23 @@ Zellenfelder kann man durch den Befehl: {\color{blue}\verb|\multicolumn{2}}{c}{c
 \underline{Beispiel:}\\
 \vspace{0.5cm}
 \begin{tabular}{c|c|c}
-\hline
-\multicolumn{3}{c}{cell1,2,3}\\
-\hline
-cell4 & cell5 & cell6\\
-cell7 & cell8 & cell9\\
+	\hline
+	\multicolumn{3}{c}{cell1,2,3} \\
+	\hline
+	cell4 & cell5 & cell6         \\
+	cell7 & cell8 & cell9         \\
 \end{tabular}\\
 \vspace{0.5cm}
 
 \section*{Interessante Befehle}
 
 \subsection{Abstände}
-Man kann sowohl horizontale als auch vertikale Abstände einfügen, das macht man mit den Befehlen: {\color{blue}\verb|\hspace{1cm}|} oder {\color{blue}\verb|\vspace{1cm}|}\\
+Man kann sowohl horizontale als auch vertikale Abstände einfügen, das macht man mit den Befehlen: {\color{blue}\verb|\hspace{1cm}|} oder {\color{blue}\verb|\vspace{1cm}|}.\\
 Das kann dann so \hspace{3cm} aussehen oder so \vspace{1cm}\\ aussehen.
 
 \subsection{Übergreifende Schriftart}
-Durch {\color{blue}\verb|\textit{}|} können auch ganze Sätze kursiv geschrieben werden. Für kursiv benutzt man {\color{blue}textit}, für fett {\color{blue}textbf} und bei unterstrichenen Sätzen {\color{blue}underline}, dabei kann ein ganzer Satz von den Klammern umschlossen werden. \\
+Durch {\color{blue}\verb|\textit{}|} können auch ganze Sätze kursiv geschrieben werden.
+Für kursiv benutzt man {\color{blue}\verb|textit|}, für fett {\color{blue}\verb|\textbf|} und bei unterstrichenen Sätzen {\color{blue}\verb|\underline|}, dabei kann ein ganzer Satz von den Klammern umschlossen werden. \\
 \underline{Beispiel:}\\
 \textit{Dieser ganze Satz ist kursiv!!}\\
 \textbf{Dieser ganze Satz ist fett gedruckt!!}
@@ -231,10 +237,10 @@ Jenes tut man durch den Befehl:\\
 Falls man ganze Bereiche von Befehlen als Text möchte, erstellt man eine Umgebung mit {\color{blue}\verb|\begin{verbatim}|} und beendet sie mit {\color{blue}\verb|\end{verbatim}|}.
 
 \subsection{Farbe}
-In diesem Handout nutzte ich die farbliche Hervorhebung von Befehlen, davor muss man das Paket {\color{blue}xcolor} durch {\color{blue}\verb|\usepackage{xcolor}|} einfügen.\\
+In diesem Handout nutzte ich die farbliche Hervorhebung von Befehlen, davor muss man das Paket {\color{blue}\texttt{xcolor}} durch {\color{blue}\verb|\usepackage{xcolor}|} einfügen.\\
 Durch {\color{blue}\verb|\color|} wird dann der ganze folgende Text in der Wahlfarbe eingefärbt.\\
 Auch hier kann man alternativ eine Umgebung mit {\color{blue}\verb|\begin{red}|} und mit {\color{blue}\verb|\end{red}|} erstellen.\\
-Einzelne Worte können mit {\color{blue}\verb|{\color{red}...}|} koloriert werden, um einen farblichen Kasten zu erstellen benutzt man den Befehl {\color{blue}\verb|\colorbox{red}{}|}.\\
+Einzelne Worte können mit {\color{blue}\verb|{\color{red} ...}|} koloriert werden, um einen farblichen Kasten zu erstellen, benutzt man den Befehl {\color{blue}\verb|\colorbox{red}{}|}.\\
 \underline{Beispiele:}\\
 \color{blue} Dieser ganze Satz ist blau.\\
 \color{black}
@@ -250,12 +256,12 @@ backend=biber,
 style=alphabetic,
 sorting=ynt
 ]{biblatex}
-\addbibresource{sample.bib}
+\addbibresource{beispiel.bib}
 \end{verbatim}}
-Dabei sorgt backend=biber für die Sortierung der Auflistung,\\
-style=standard definiert den Stil und sorting=ynt legt den Sortierstil fest, hier ist die Abstufung {\color{blue}\underline{y}}ear {\color{blue}\underline{n}}ame {\color{blue}\underline{t}}itel.
-Die Bibliothek wird dann als neue Datei mit dem Namen Name.bib erstellt und hinzugefügt durch {\color{blue}\verb|\addbibresource{sample.bib}|}.\\
-Um dann Quellen einzufügen, muss man sie in einer seperaten Datei erstellen und dann per Befehl einfügen.\\
+Dabei sorgt {\color{blue} \texttt{backend=biber}} für die Sortierung der Auflistung,\\
+{\color{blue} \texttt{style=standard}} definiert den Stil und {\color{blue} \texttt{sorting=ynt}} legt den Sortierstil fest, hier ist die Abstufung {\color{blue}\underline{y}}ear {\color{blue}\underline{n}}ame {\color{blue}\underline{t}}itel.
+Die Bibliothek wird dann als neue Datei mit dem Namen {\color{blue} \texttt{beispiel.bib}} erstellt und hinzugefügt durch {\color{blue}\verb|\addbibresource{beispiel.bib}|}.\\
+Um dann Quellen einzufügen, muss man sie in einer separaten Datei erstellen und dann per Befehl einfügen.\\
 \underline{Beispiel:}\\
 \color{blue}
 \begin{verbatim}
@@ -268,38 +274,39 @@ Um dann Quellen einzufügen, muss man sie in einer seperaten Datei erstellen und
     keywords  = "harrypotter"
 }
 \end{verbatim}
-
 \color{black}
-Zuerst wird durch @ die Art der Quelle angegeben, dann ein Quellreferenzname, welcher beim Quellverweis benutzt wird, dann in diesem Fall der Autor; der Titel; das Jahr; usw... Am Ende wird noch ein Keyword angegeben, damit man Quellen einer Art je nach Keyword oder Quellenart sortieren kann.\\
+Zuerst wird durch {\color{blue} \texttt{@}} die Art der Quelle angegeben (hier: {\color{blue} \texttt{book}}), dann ein Quellreferenzname (hier: {\color{blue} \texttt{harrypotter}}), welcher beim Quellverweis benutzt wird, dann in diesem Fall der Autor; der Titel; das Jahr; … am Ende wird noch ein Keyword angegeben, damit man Quellen einer Art je nach Keyword oder Quellenart sortieren kann.\\
 Ohne {\color{blue}\verb|\cite{harrypotter}|} kann keine Quelle eingefügt werden, der Quellverweis sieht wie folgt aus.\\
-Das Lieblingsbuch der 2000er war Harry Potter und der Stein der Weisen \cite{harrypotter}, geschrieben von J.K.Rowling, diese ist heute für ihre transfeindlichen Aussagen und Aktionen bekannt.
 
-Das Einfügen durch {\color{blue}\verb|\printbibliography[title={Bücher]|} sieht dann folgendermaßen aus (siehe letzte Seite):\\
+\begin{quote}
+	Das Lieblingsbuch der 2000er war \textit{Harry Potter und der Stein der Weisen} \autocite{harrypotter}, geschrieben von J.K. Rowling, diese ist heute für ihre transfeindlichen Aussagen und Aktionen bekannt.
+\end{quote}
 
-Je nach Art der Quelle kann auch eine url hinzugefügt werden, usw...\\
-Um Quellen zu sortieren, kann man bei printbibliography nach z.B. dem angegebenen Quelltypen sortiern, mit {\color{blue}\verb|\printbibliography[type=book,title={nur Buchreferenzen}]|}\\
-auch kann man nach den keywords sortieren, falls zum Beispiel mehrere Harry Potter Teile in einem Artikel erwähnt werden, notiert man bei allen als Schlüsselwort harrypotter und sortiert diese dann so: {\color{blue}\verb|\printbibliography[keyword={harrypotter},title={Harry Potter Serie}]|}\\
+Das Einfügen durch {\color{blue}\verb|\printbibliography[title={Bücher]|} sieht dann folgendermaßen aus (siehe letzte Seite).\\
+
+Je nach Art der Quelle kann auch eine URL hinzugefügt werden, usw. \\
+Um Quellen zu sortieren, kann man bei {\color{blue} \verb|\printbibliography|} nach z.~B. den angegebenen Quelltypen sortieren, mit {\color{blue}\verb|\printbibliography[type=book,title={nur Buchreferenzen}]|}\\
+kann man auch nach den {\color{blue} \texttt{keywords}} sortieren, falls zum Beispiel mehrere Harry Potter Teile in einem Artikel erwähnt werden, notiert man bei allen als Schlüsselwort harrypotter und sortiert diese dann so: {\color{blue}\verb|\printbibliography[keyword={harrypotter},title={Harry Potter Serie}]|}\\
 \vspace{4cm}
 
 \section{Für deutschsprachige Dokumente}
-
-Um einige Elemente der \LaTeX-Formatierung an die deutsche Sprache anzupassen, müssen im preamble einige Änderungen vorgenommen werden.
+Um einige Elemente der \LaTeX-Formatierung an die deutsche Sprache anzupassen, müssen im Präambel einige Änderungen vorgenommen werden.
 
 \color{blue}
 \begin{verbatim}
     \documentclass[ngerman]{article}
 
-    \usepackage[T1]{fontenc}
+    \usepackage[T1]{fontenc} % Nur wenn pdflatex genutzt wird
     \usepackage{babel}
     \usepackage{csquotes}
 \end{verbatim}
 \color{black}
 
-Das Paket {\color{blue}\texttt{babel}} übersetzt generierte Texte wie {\color{blue}\textit{table of contents}} ins Deutsche, das Paket {\color{blue}\texttt{csquotes}} sorgt für deutsche Anführungszeichen. Damit diese Pakete wissen, dass das Dokument deutsch ist, wird {\color{blue}\texttt{ngerman}} (d.h. \underline{n}eue \underline{deutsche} Rechtschreibung) als Parameter in {\color{blue}\verb|\documentclass[]{}|} übergeben.
+Das Paket {\color{blue}\texttt{babel}} übersetzt generierte Texte wie {\color{blue}\textit{table of contents}} ins Deutsche, das Paket {\color{blue}\texttt{csquotes}} sorgt für deutsche Anführungszeichen. Damit diese Pakete wissen, dass das Dokument deutsch ist, wird {\color{blue}\texttt{ngerman}} (d.~h. \underline{n}eue \underline{deutsche} Rechtschreibung) als Parameter in {\color{blue}\verb|\documentclass[]{}|} übergeben.
 
 \section{Für weitere Informationen}
-Mehr Informationen zu den einzelnen Befehlen sowie weitere Befehle findet ihr auch unter auf Englisch unter \url{https://www.overleaf.com/learn} oder auf Deutsch unter \url{https://www.learnlatex.org/de/}.\\
-Falls es spezifische Probleme gibt, findet man die Antwort meist auf \url{https://tex.stackexchange.com}
+Mehr Informationen zu den einzelnen Befehlen sowie weitere Befehle findet ihr auch auf Englisch unter \url{https://www.overleaf.com/learn} oder auf Deutsch unter \url{https://www.learnlatex.org/de/}.\\
+Falls es spezifische Probleme gibt, findet man die Antwort meist auf \url{https://tex.stackexchange.com}.
 
 \subsection{Quellenverweis}
 LaTeX-logo : \url{https://de.m.wikipedia.org/wiki/Datei:LaTeX_logo.svg}
