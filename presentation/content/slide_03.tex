@@ -1,0 +1,57 @@
+%! TEX root = ../main.tex
+% LTeX: language=de-DE
+
+
+\begin{frame}{Nutzung}
+	\setbeamercolor{itemize/enumerate body}{fg=gray}
+	\begin{itemize}[<+-|alert@+>]
+		\item Prozess:
+		\begin{enumerate}
+			\item Schreiben der .tex-Datei in Plaintext
+			\\$\rightarrow$ dazu verschiedenste Programme möglich
+
+			\item Kompilieren zum formatierten Dokument
+		\end{enumerate}
+
+		\item Verschiedenste Endprodukte möglich
+		\item Nutzung v.a. bei Mischung von Formeln und Fließtext sinnvoll
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Verschiedene Bereiche}
+	\begin{music}
+		\smallmusicsize
+		\parindent10mm
+		\instrumentnumber{1}
+		% a single instrument
+		\setname1{Piano}
+		% whose name is Piano
+		\setstaffs1{2}
+		% with two staffs
+		\generalmeter{\meterfrac44}
+		% 4/4 meter chosen
+		\startextract
+		% starting real score
+		\Notes\ibu0f0\qb0{cge}\tbu0\qb0g|\hl j\en
+		\Notes\ibu0f0\qb0{cge}\tbu0\qb0g|\ql l\sk\ql n\en
+		%\bar
+		%\Notes\ibu0f0\qb0{dgf}|\qlp i\en
+		%\notes\tbu0\qb0g|\ibbl1j3\qb1j\tbl1\qb1k\en
+		%\Notes\ibu0f0\qb0{cge}\tbu0\qb0g|\hl j\en
+		\endextract
+		% terminate excerpt
+	\end{music}
+
+	\begin{columns}
+		\column{0.5\textwidth}
+			\centering
+			\newchessgame
+			\hidemoves{1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6} 
+			\chessboard[smallboard,showmover=false,label=false]
+	
+		\column{0.5\textwidth}
+			\centering
+			\ce{Fe2O3 + 2Al -> 2Fe + Al2O3}
+	\end{columns}
+	
+\end{frame}
