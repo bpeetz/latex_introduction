@@ -55,7 +55,7 @@ Umgebungen, z.~B. Listen, werden folgendermaßen erstellt:
 Auch eigene Befehle können mit {\color{blue}\verb|\newocmmand{}{}|} erstellt werden.
 
 Im zweiten Abschnitt wird dann der eigentliche Inhalt erstellt. Dabei können die Informationen wie Titel, Autor etc. mit {\color{blue}\verb|\maketitle|} dargestellt werden. Mit Kapiteln, Bereichen etc. kann das Dokument gegliedert werden, sowie mit {\color{blue}\verb|\tableofcontents|} ein Inhaltsverzeichnis generiert werden.
-Auch Quellenangaben und generieren einer Bibliografie ist möglich. Zudem können externe \texttt{.tex} Dateien mit {\color{blue}\verb|\imput{}|} ins Dokument eingebunden werden.
+Auch Quellenangaben und generieren einer Bibliografie ist möglich. Zudem können externe \texttt{.tex}-Dateien mit {\color{blue}\verb|\imput{}|} ins Dokument eingebunden werden.
 
 Im Folgenden werden nun die wichtigsten Befehle für den Inhaltsbereich erklärt.
 
@@ -151,14 +151,13 @@ Man kann
 \end{enumerate}
 darstellen.
 
-\section*{Mathematik}
+\section{Mathematik}
 Um auch etwas Mathematik hier einfließen zu lassen, kann man mathematische Formeln darstellen. Wenn man das im Satz tun möchte, passiert das am leichtesten durch das Einklammern mit den {\color{blue}\verb|$…$|} - Zeichen.\\
 Möchte man eine mathematische Formel als einzigen Inhalt einer Zeile haben, nutzt man {\color{blue}\verb|\[...\]|} zum Einklammern.\\
 \underline{Beispiel:}\\
-% TODO(bpeetz): Ergibt hier `\cdot{}` statt dem '×' Sinn, weil es ja nicht gerendert wird?
-Der Flächeninhalt eines Kreises wird durch die Formel $A=\pi×r^2$ beschrieben.\\
+Der Flächeninhalt eines Kreises wird durch die Formel $A=\pi\cdot r^2$ beschrieben.\\
 Der Flächeninhalt eines Kreises wird durch die Formel:
-\[A=\pi×r^2\] beschrieben.
+\[A=\pi\cdot r^2\] beschrieben.
 
 \section{Tabellen}
 Um eine Tabelle zu erstellen, braucht es wieder die Eingrenzung einer Umgebung, durch {\color{blue}\verb|\begin{tabular}{c c c}|} oder {\color{blue}\verb|{c r c}|} oder {\color{blue}\verb|{l r l}|}, usw.\\
@@ -215,7 +214,7 @@ Zellenfelder kann man durch den Befehl: {\color{blue}\verb|\multicolumn{2}}{c}{c
 \end{tabular}\\
 \vspace{0.5cm}
 
-\section*{Interessante Befehle}
+\section{Interessante Befehle}
 
 \subsection{Abstände}
 Man kann sowohl horizontale als auch vertikale Abstände einfügen, das macht man mit den Befehlen: {\color{blue}\verb|\hspace{1cm}|} oder {\color{blue}\verb|\vspace{1cm}|}.\\
