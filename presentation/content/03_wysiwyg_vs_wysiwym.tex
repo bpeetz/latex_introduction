@@ -1,0 +1,37 @@
+%! TEX root = ../main.tex
+% LTeX: language=de-DE
+
+
+%\begin{frame}{Warum dann eigentlich?}
+%	\begin{center}
+%		"What you see is what you get" (WYSIWYG) \pause \\
+%		vs. \\
+%		"What you see is what you mean" (WYSIWYM)
+%	\end{center}
+%\end{frame}
+
+\setbeamercovered{transparent}
+\begin{frame}
+	\begin{description}
+		\item<1,2>[WYSIWYG]
+		\begin{itemize}
+			\item<2>{Formatierung und Inhalt sind nicht getrennt.}
+		\end{itemize}
+		\item<3-6>[WYSIWYM]
+		\begin{itemize}
+			\item<4>{Inhalt und Formatierung sind streng getrennt.}
+			\item<5>{Inhalt bekommt aber Semantik, nicht die Formatierung angegeben}
+			\item<6>{Genaue Formatierung wird erst am Ende durch Definitionen der Dokumentklasse erkenntlich}
+		\end{itemize}
+	\end{description}
+\end{frame}
+\setbeamercovered{invisible}
+
+\begin{frame}{WYSIWYM}
+	\setbeamercolor{itemize/enumerate body}{fg=gray}
+	\begin{itemize}[<+-|alert@+>]
+		\item Von fast jeder wissenschaftlichen Zeitschrift genutzt (Science, Nature, etc.)
+		\item Leicht, sich auf den Inhalt zu konzentrieren
+        \item Macht Restrukturierung des Dokuments sehr einfach
+	\end{itemize}
+\end{frame}
