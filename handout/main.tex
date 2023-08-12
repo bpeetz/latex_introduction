@@ -54,10 +54,10 @@ Umgebungen, z.~B. Listen, werden folgendermaßen erstellt:
 \LaTeX-Dateien sind in zwei Bereiche unterteilt: die Präambel und der Inhaltsteil. In ersterer werden die Art des Dokuments ({\color{blue}\verb|\documentclass{}|}), verschiedene Metadaten (u.~A. {\color{blue}\verb|\author|}), und erste Layout-Informationen festgelegt.
 Auch eigene Befehle können mit {\color{blue}\verb|\newocmmand{}{}|} erstellt werden.
 
-Im zweiten Abschnitt wird dann der eigentliche Inhalt erstellt. Dabei können die Informationen wie Titel, Autor etc. mit {\color{blue}\verb|\maketitle|} dargestellt werden. Mit Kapiteln, Bereichen etc. kann das Dokument gegliedert werden, sowie mit {\color{blue}\verb|\tableofcontents|} daraus ein Inhaltsverzeichnis mit Seitenzahlen generiert werden.
+Im zweiten Abschnitt wird dann der eigentliche Inhalt erstellt. Dabei können die Informationen wie Titel, Autor etc. mit {\color{blue}\verb|\maketitle|} dargestellt werden. Mit Kapiteln, Bereichen etc. kann das Dokument gegliedert werden, sowie mit {\color{blue}\verb|\tableofcontents|} ein Inhaltsverzeichnis generiert werden.
 Auch Quellenangaben und generieren einer Bibliografie ist möglich. Zudem können externe \texttt{.tex}-Dateien mit {\color{blue}\verb|\imput{}|} ins Dokument eingebunden werden.
 
-Im Folgenden werden nun die wichtigsten Befehle für den Inhaltsbereich erklärt und deren Darstellung gezeigt. Dieses Dokument wurde auch vollständig mit \LaTeX generiert.
+Im Folgenden werden nun die wichtigsten Befehle für den Inhaltsbereich erklärt.
 
 \chapter{\centering Nützliche \LaTeX{}-Befehle}
 
@@ -103,8 +103,8 @@ Wenn man ganze Texte vergrößer oder verkleinern will, lässt man die geschwung
 \section{Grafiken}
 Bilder o.~Ä. können erst eingefügt werden, wenn ein Paket mit vordefinierten Befehlen am Anfang mit eingebunden wird, hier wäre es {\color{blue}\verb|\usepackage{graphicx}|}.
 \\Um das Bild einfügen zu können, muss man angeben, wo die Grafik in deinen Dateien liegt.\\
-\underline{Den Pfad zum Bild angeben:} {\color{blue}\verb|\graphicspath{{Downloads/beispiel.png}}|}.\\
-Das Bild \texttt{beispiel.png} liegt hier in einem Ordner \texttt{Downloads}.\\ Zusätzlich kann die Größe des Bildes durch {\color{blue} \verb|"width="|} angegeben werden, in diesem Fall ist das Bild 50 \% so groß, wie der Text, auch kann man sich auf die Texthöhe mit {\color{blue}\verb|"height=\textheight"|} beziehen. \\
+\underline{Den Pfad zum Bild angeben:} {\color{blue}\verb|\graphicspath{Downloads/beispiel}|}.\\
+Das Bild \texttt{beispiel} liegt hier in einem Ordner \texttt{Downloads}.\\ Zusätzlich kann die Größe des Bildes durch {\color{blue} \verb|"width="|} angegeben werden, in diesem Fall ist das Bild 50 \% so groß, wie der Text, auch kann man sich auf die Texthöhe mit {\color{blue}\verb|"height=\textheight"|} beziehen. \\
 \underline{Einfügen des Bildes:} {\color{blue}\verb|\includegraphics[width=0.5\textwidth]{LaTeX-logo}|}\\
 \underline{Beispiel:}
 \graphicspath{{resources}}
@@ -128,8 +128,7 @@ Das Bild kann auch benannt werden, einer Zahl zugewiesen werden und auf die Abbi
 \end{figure}
 \raggedright
 \label{fig:LaTeX-logo}
-% TODO(bpeetz): Soll man hier vllt die wirkliche number referenzieren, statt 1 hardzucoden?
-Mit {\color{blue}\verb|\label{fig:LaTeX-logo}|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo}|} wird diese Zahl hier ausgegeben: 1.\\
+Mit {\color{blue}\verb|\label{fig:LaTeX-logo}|} wurde dem Bild eine Nummer zugewiesen und mit {\color{blue}\verb|\ref{fig:LaTeX-logo.png}|} wird diese Zahl hier ausgegeben: 1.\\
 
 \section{Dateien einfügen}
 Ähnlich wie Grafiken können auch andere \LaTeX{}-Dateien eingefügt werden.
