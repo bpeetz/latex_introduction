@@ -87,6 +87,9 @@
           texlab
           zathura
           texlive
+
+          wl-mirror
+          wlr-randr
         ];
       };
     });

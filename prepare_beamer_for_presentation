@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+wlr-randr --output HDMI-A-1 --mode 1920x1080
+riverctl keyboard-layout 'de'
+wl-mirror HDMI-A-1
+
+
+# vim: ft=sh
